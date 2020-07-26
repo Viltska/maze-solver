@@ -2,7 +2,7 @@
 
 ## Raportit
 
-* Määrittelydokumentti
+* [Määrittelydokumentti](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/maarittely.md)
 
 ## Viikkopalautukset
 
