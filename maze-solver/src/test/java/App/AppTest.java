@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cs.helsinki.fi.maze.solver;
+package App;
 
 /**
  *
  * @author Ville Manninen
  */
-public class App {
-    
+public class AppTest {
+
+    public AppTest() {
+    }
+
 }
