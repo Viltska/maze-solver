@@ -12,3 +12,7 @@ Luotu luokat hallitsemaan labyrintiä ja generoimista.
 ## Viikolla opittua
 
 Labyrintin generoimista ja package sekä POM-managerointia.
+
+## Seuraavaksi
+
+Luon graafisen käyttöliitymän ohjelmalle.
