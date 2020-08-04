@@ -13,5 +13,7 @@ Labyrinti luodaan käyttäen kaksiuloitteista taulkkoa jossa seiniä ja polkuja 
 
 ## Aika ja tilavaatimukset
 
-Aika vaatimus ratkaisun löytämiselle *O(n)* kun *n* labyrintin (korkeus x leveys). Pahimmassa tapauksessa algoritmi joutuu tarkistamaan jokaisen neliön labyrintin sisällä.
+Aika vaatimus ratkaisun löytämiselle **O(n)** kun **n** labyrintin (korkeus x leveys). Pahimmassa tapauksessa algoritmi joutuu tarkistamaan jokaisen neliön labyrintin sisällä.
+
+Algoritmin tilavaatimus on sama kuin aikavaatimus sillä pahimmassa tapauksessa muistiin joudutaan tallentamaan jokainen labyrintin neliö.
 
