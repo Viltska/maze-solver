@@ -66,7 +66,6 @@ public class Generate {
             // if no univisited neighbours check previous square
             current = q.pop();
         }
-
     }
 
     /**

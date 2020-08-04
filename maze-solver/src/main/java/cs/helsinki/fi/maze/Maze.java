@@ -3,7 +3,9 @@ package cs.helsinki.fi.maze;
 import java.util.Random;
 
 /**
+ * Class for creating a Maze.
  *
+ * @version 1.0-SNAPSHOT
  * @author Ville Manninen
  */
 public class Maze {
@@ -51,15 +53,14 @@ public class Maze {
     }
 
     /**
-     * Calls MazeGenerate class to generate a maze.
+     * Generates a maze with start and finish points.
+     *
+     * @see Generate.generate()
      */
     public void generate() {
         generateEmptyMaze();
-
-        // MazeGenerate called
         generate.generate();
 
-        // Add start and finish squares
         setSquareValue(start.getWidth(), start.getHeight(), 3);
         setSquareValue(finish.getWidth(), finish.getHeight(), 4);
 
