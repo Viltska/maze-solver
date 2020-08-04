@@ -2,11 +2,11 @@
 
 ## Tavoite
 
-Ohjelman tarkoituksena on labyritin luominen ja ratkaiseminen, sekä näiden esittäminen käyttäjälle graafisen käyttöliittymän avulla. Tavoitteena on löytää tehokkaasti jokin ratkaisu labyrintille.
+Ohjelman tarkoituksena on labyrintin luominen ja ratkaiseminen, sekä näiden esittäminen käyttäjälle graafisen käyttöliittymän avulla. Tavoitteena on löytää tehokkaasti jokin ratkaisu labyrintille.
 
 ## Tietorakenne
 
-Labyrinti luodaan käyttäen kaksiuloitteista taulkkoa jossa seiniä ja polkuja esitetään kokonaisluvuilla.
+Labyrintti luodaan käyttäen kaksiulotteista taulukkoa jossa seiniä ja polkuja esitetään kokonaisluvuilla. Labyrintti on yksinkertaisesti yhdistetty eli jokaisesta sen kohdasta on mahdollisuus kulkea jokaiseen muuhun sen kohdista.
 
 ## Ratkaisu algoritmi
 
