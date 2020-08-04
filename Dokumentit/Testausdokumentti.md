@@ -1,6 +1,6 @@
 ## Testaus
 
-Ohjelma käyttää yksikötestaukseen JUnit kirjastoa. Testien tulokset ja raportit ilmestyvät projektikansioon /target, jossa niitä voidaan tarkastella
+Ohjelma käyttää yksikkötestaukseen JUnit-kirjastoa. Testien tulokset ja raportit ilmestyvät projektikansioon /target, jossa niitä voidaan tarkastella
 
 ## JUnit
 
@@ -17,4 +17,4 @@ Testikattavuus voidaan tarkistaa Jacoco-raportilla joka voidaan luoda komennolla
 
 ### Checkstyle
 
-Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`, jonka jälkeen /target/site kansioon ilmestyy tiedosto checkstyle.html, tästä nähdään onko koodissa puutteita tai rikkeitä konventiossa.
+Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`, jonka jälkeen /target/site kansioon ilmestyy tiedosto checkstyle.html, tästä nähdään koodissa olevia puutteita tai rikkeitä konventiossa.
