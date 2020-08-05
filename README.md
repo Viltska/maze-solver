@@ -1,5 +1,8 @@
 # Maze solver
 
+Tarvittavat ohjelmat:
+[Java](https://java.com/en/download/), [Maven](https://maven.apache.org/).
+
 ## Raportit
 
 * [Kayttöohje](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Kayttoohje.md)
