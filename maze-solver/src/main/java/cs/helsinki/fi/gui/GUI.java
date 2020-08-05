@@ -58,7 +58,7 @@ public class GUI extends Application {
      * Method for drawing the maze on canvas.
      *
      * <p>
-     * Values convention: 1 - Wall. 2- Path. 3 - Start. 4 - Finish.
+     * Values convention:0 = Path, 1 = Wall, 2 = Route, 3 = Start, 4 = Finish.
      * <p>
      */
     public void draw() {
@@ -67,14 +67,14 @@ public class GUI extends Application {
         for (int i = 0; i < maze.getWidth() * scale; i = i + scale) {
             for (int j = 0; j < maze.getHeight() * scale; j = j + scale) {
                 square = maze.getSquareValue(i / scale, j / scale);
-                if (square == 1) {
-                    gc.setFill(Color.DARKSLATEGRAY);
-                    gc.fillRect(i, j, scale, scale);
-                }
+                
                 if (square == 0) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
-
+                }
+                if (square == 1) {
+                    gc.setFill(Color.DARKSLATEGRAY);
+                    gc.fillRect(i, j, scale, scale);
                 }
                 if (square == 2) {
                     gc.setFill(Color.YELLOW);
