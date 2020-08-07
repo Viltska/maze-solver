@@ -23,7 +23,7 @@ public class GUI extends Application {
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
     /**
-     * Method for launching a GUI window.
+     * Method for launching a GUI window. creates a Maze class.
      *
      * @param stage - primary stage
      * @throws Exception - Application Exception
@@ -67,7 +67,7 @@ public class GUI extends Application {
         for (int i = 0; i < maze.getWidth() * scale; i = i + scale) {
             for (int j = 0; j < maze.getHeight() * scale; j = j + scale) {
                 square = maze.getSquareValue(i / scale, j / scale);
-                
+
                 if (square == 0) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);

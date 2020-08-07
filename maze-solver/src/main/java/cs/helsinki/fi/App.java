@@ -4,9 +4,9 @@ import cs.helsinki.fi.gui.GUI;
 import javafx.application.Application;
 
 /**
- * Class for launching Application.
+ * Main class for programs.
  *
- * @version 1.0-SNAPSHOT
+ * @version 1.3-SNAPSHOT
  * @author Ville Manninen
  */
 public class App {
