@@ -18,3 +18,5 @@ Tarvittavat ohjelmat:
 * [Viikko 1](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko1.md)
 
 * [Viikko 2](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko2.md)
+
+* [Viikko 3](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko3.md)
