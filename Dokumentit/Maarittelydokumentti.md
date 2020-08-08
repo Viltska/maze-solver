@@ -10,6 +10,8 @@ Labyrintti luodaan käyttäen kaksiulotteista taulukkoa jossa seiniä ja polkuja
 
 ## Ratkaisu algoritmi
 
+Wall follower algoritmi joka seuraa labyrintin seinää kunnes löytää ulospääsyn. 
+
 
 ## Aika ja tilavaatimukset
 
