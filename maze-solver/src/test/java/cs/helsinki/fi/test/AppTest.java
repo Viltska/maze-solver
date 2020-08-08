@@ -12,6 +12,6 @@ public class AppTest {
     @Test
     public void hasMainMethod() {
         App app = new App();
-        
+
     }
 }

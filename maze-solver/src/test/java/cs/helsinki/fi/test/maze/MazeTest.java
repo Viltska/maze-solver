@@ -2,10 +2,6 @@ package cs.helsinki.fi.test.maze;
 
 import java.util.ArrayList;
 import cs.helsinki.fi.maze.*;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,22 +12,6 @@ import static org.junit.Assert.*;
 public class MazeTest {
 
     public MazeTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     @Test
@@ -125,13 +105,54 @@ public class MazeTest {
 
     @Test
     public void generateTest() {
+        Maze maze = new Maze(10, 10);
+        maze.generate();
 
+        assertFalse(maze.getStart() == null);
+        assertFalse(maze.getFinish() == null);
+
+    }
+
+    @Test
+    public void canMoveToTest() {
+        Maze maze = new Maze(10, 10);
+        maze.generateEmptyMaze();
+
+        for (int i = 1; i < maze.getHeight() - 1; i++) {
+            for (int j = 1; j < maze.getWidth() - 1; j++) {
+                maze.setSquareValue(i, j, 0);
+            }
+        }
+        maze.setSquareValue(2, 2, 1);
+
+        assertEquals(true, maze.canMoveTo(1, 2));
+        assertEquals(true, maze.canMoveTo(2, 1));
+        assertEquals(false, maze.canMoveTo(2, 2));
+        assertEquals(false, maze.canMoveTo(1, 0));
+
+        assertEquals(false, maze.canMoveTo(0, 0));
+        assertEquals(false, maze.canMoveTo(0, 9));
+        assertEquals(false, maze.canMoveTo(9, 0));
+        assertEquals(false, maze.canMoveTo(9, 9));
+
+        assertEquals(false, maze.canMoveTo(-1, 0));
+    }
+
+    @Test
+
+    public void solveTest() {
+        Maze maze = new Maze(10, 10);
+        maze.solve();
     }
 
     @Test
     public void testStart() {
         Maze maze = new Maze(10, 10);
+        maze.generate();
         Square start = maze.getStart();
+
+        assertEquals(1, start.getHeight());
+        assertEquals(1, start.getWidth());
     }
 
     @Test

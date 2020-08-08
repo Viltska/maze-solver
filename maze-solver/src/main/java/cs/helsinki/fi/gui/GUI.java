@@ -18,7 +18,8 @@ import javafx.scene.image.Image;
  */
 public class GUI extends Application {
 
-    private final Maze maze = new Maze(41, 41);
+    // Maze size and scale settings.
+    private final Maze maze = new Maze(21, 21);
     private final int scale = 18;
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
@@ -34,9 +35,10 @@ public class GUI extends Application {
         root.getChildren().add(canvas);
         Scene s = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
         maze.generate();
-        maze.solve();
+        // maze.solve();
         draw();
 
+        // Load stage icon image
         try {
             ClassLoader classLoader = getClass().getClassLoader();
             String imageUrl = classLoader.getResource("icon.png").toExternalForm();
@@ -67,7 +69,7 @@ public class GUI extends Application {
         for (int i = 0; i < maze.getWidth() * scale; i = i + scale) {
             for (int j = 0; j < maze.getHeight() * scale; j = j + scale) {
                 square = maze.getSquareValue(i / scale, j / scale);
-                
+
                 if (square == 0) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
@@ -77,6 +79,8 @@ public class GUI extends Application {
                     gc.fillRect(i, j, scale, scale);
                 }
                 if (square == 2) {
+                    gc.setFill(Color.ANTIQUEWHITE);
+                    gc.fillRect(i, j, scale, scale);
                     gc.setFill(Color.YELLOW);
                     gc.fillOval(i, j, scale, scale);
                 }

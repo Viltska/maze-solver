@@ -1,5 +1,6 @@
 package cs.helsinki.fi.maze;
 
+import cs.helsinki.fi.solving.DFS;
 import java.util.Random;
 
 /**
@@ -35,7 +36,7 @@ public class Maze {
     }
 
     /**
-     * Method for generating an empty maze with start and finish squares.
+     * Method for generating an empty maze with start and finish Squares.
      */
     public void generateEmptyMaze() {
         for (int i = 0; i < width; i++) {
@@ -47,13 +48,13 @@ public class Maze {
                 }
             }
         }
-        start = new Square(random.nextInt(width - 2) + 1, 1);
+        start = new Square(1, 1);
         finish = new Square(random.nextInt(width - 2) + 1, height - 2);
 
     }
 
     /**
-     * Generates a maze with start and finish points.
+     * Generates a maze with start and finish.
      *
      * @see Generate.generate()
      */
@@ -67,10 +68,10 @@ public class Maze {
     }
 
     /**
-     * Method for checking is given square is a neighbour of the finish square.
+     * Method for checking is given square is a neighbour of the finish Square.
      *
-     * @param square - current square
-     * @return Boolean - returns true if next to finish square.
+     * @param square - current Square
+     * @return Boolean - returns true if next to finish Square.
      */
     public boolean reachedFinish(Square square) {
         boolean reached = false;
@@ -98,7 +99,7 @@ public class Maze {
      * Method for calling a solving algorithm.
      */
     public void solve() {
-        // TODO solving class
+        // Todo chose solving algorithm.
     }
 
     /**
@@ -117,7 +118,7 @@ public class Maze {
     }
 
     /**
-     * Method for setting value on a square. value must be between (0-4).
+     * Method for setting value on a Square. value must be between (0-4).
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -143,20 +144,35 @@ public class Maze {
     }
 
     /**
-     * Method to get start square. Returns null if start Square has not been
+     * Utility method for checking if given values contain a path inside the
+     * grid.
+     *
+     * @param x - width coordinate
+     * @param y - height coordinate
+     * @return Boolean - true if inside the gird and a path Square.
+     */
+    public boolean canMoveTo(int x, int y) {
+        if (insideGrid(x, y)) {
+            return maze[x][y] == 0;
+        }
+        return false;
+    }
+
+    /**
+     * Method to get start Square. Returns null if start Square has not been
      * initialized.
      *
-     * @return Square - start square
+     * @return Square - start Square
      */
     public Square getStart() {
         return start;
     }
 
     /**
-     * Method to get finish square. Returns null if finish Square has not been
+     * Method to get finish Square. Returns null if finish Square has not been
      * initialized.
      *
-     * @return Square - finish square
+     * @return Square - finish Square
      */
     public Square getFinish() {
         return finish;
