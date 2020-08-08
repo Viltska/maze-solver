@@ -24,7 +24,7 @@ public class GUI extends Application {
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
     /**
-     * Method for launching a GUI window.
+     * Method for launching a GUI window. creates a Maze class.
      *
      * @param stage - primary stage
      * @throws Exception - Application Exception
