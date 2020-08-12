@@ -147,7 +147,7 @@ public class Maze {
 
     /**
      * Utility method for checking if given values contain a path inside the
-     * grid.
+     * grid, allows travel to start and route squares.
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -155,7 +155,10 @@ public class Maze {
      */
     public boolean canMoveTo(int x, int y) {
         if (insideGrid(x, y)) {
-            return maze[x][y] == 0;
+            int val = maze[x][y];
+            if (val == 0 || val == 3 || val == 2) {
+                return true;
+            }
         }
         return false;
     }

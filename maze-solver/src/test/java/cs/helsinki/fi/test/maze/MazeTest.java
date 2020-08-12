@@ -136,13 +136,14 @@ public class MazeTest {
         assertEquals(false, maze.canMoveTo(9, 9));
 
         assertEquals(false, maze.canMoveTo(-1, 0));
+        
+        maze.setSquareValue(1, 2, 3);
+        assertEquals(true, maze.canMoveTo(1, 2));
     }
 
     @Test
 
     public void solveTest() {
-        Maze maze = new Maze(10, 10);
-        maze.solve();
     }
 
     @Test

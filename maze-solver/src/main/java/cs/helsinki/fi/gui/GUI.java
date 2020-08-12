@@ -1,8 +1,6 @@
 package cs.helsinki.fi.gui;
 
 import cs.helsinki.fi.maze.Maze;
-
-// JavaFX
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -19,8 +17,8 @@ import javafx.scene.image.Image;
 public class GUI extends Application {
 
     // Maze size and scale settings.
-    private final Maze maze = new Maze(21, 21);
-    private final int scale = 18;
+    private final Maze maze = new Maze(81, 81);
+    private final int scale = 12;
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
     /**
@@ -59,7 +57,7 @@ public class GUI extends Application {
      * Method for drawing the maze on canvas.
      *
      * <p>
-     * Values convention:0 = Path, 1 = Wall, 2 = Route, 3 = Start, 4 = Finish.
+     * Values convention: 0 = Path, 1 = Wall, 2 = Route, 3 = Start, 4 = Finish.
      * <p>
      */
     public void draw() {
@@ -69,26 +67,31 @@ public class GUI extends Application {
             for (int j = 0; j < maze.getHeight() * scale; j = j + scale) {
                 square = maze.getSquareValue(i / scale, j / scale);
 
+                // Path
                 if (square == 0) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
                 }
+                // Wall
                 if (square == 1) {
                     gc.setFill(Color.DARKSLATEGRAY);
                     gc.fillRect(i, j, scale, scale);
                 }
+                // Route taken
                 if (square == 2) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
                     gc.setFill(Color.YELLOW);
                     gc.fillOval(i, j, scale, scale);
                 }
+                // Start
                 if (square == 3) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
                     gc.setFill(Color.GREEN);
                     gc.fillOval(i, j, scale, scale);
                 }
+                // Finish
                 if (square == 4) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);
