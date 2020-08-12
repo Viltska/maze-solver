@@ -35,7 +35,7 @@ public class GUI extends Application {
         root.getChildren().add(canvas);
         Scene s = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
         maze.generate();
-        // maze.solve();
+        maze.solve();
         draw();
 
         // Load stage icon image
@@ -43,7 +43,6 @@ public class GUI extends Application {
             ClassLoader classLoader = getClass().getClassLoader();
             String imageUrl = classLoader.getResource("icon.png").toExternalForm();
             Image image = new Image(imageUrl);
-            System.out.println(image.toString());
             stage.getIcons().add(image);
 
         } catch (Exception e) {

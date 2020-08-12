@@ -1,6 +1,7 @@
 package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.solving.DFS;
+import cs.helsinki.fi.solving.WallFollower;
 import java.util.Random;
 
 /**
@@ -99,7 +100,8 @@ public class Maze {
      * Method for calling a solving algorithm.
      */
     public void solve() {
-        // Todo chose solving algorithm.
+        WallFollower wf = new WallFollower(this);
+        wf.solve();
     }
 
     /**

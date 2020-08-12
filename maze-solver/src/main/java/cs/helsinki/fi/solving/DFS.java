@@ -1,11 +1,12 @@
 package cs.helsinki.fi.solving;
 
 import cs.helsinki.fi.maze.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * DFS algorithm only for testing.
  *
- * @author Ville Manninen
  */
 public class DFS {
 
@@ -17,44 +18,18 @@ public class DFS {
     }
 
     public void solve() {
+        Deque<Square> que = new ArrayDeque<>();
         boolean[][] visited = new boolean[maze.getHeight()][maze.getWidth()];
-        util(maze.getStart(), visited);
+        Square start = maze.getStart();
+        que.add(start);
 
-    }
+        while (!que.isEmpty()) {
+            Square cur = que.pop();
+            System.out.println(cur);
 
-    public void util(Square current, boolean visited[][]) {
-        if (maze.reachedFinish(current)) {
-            return;
-        }
-        System.out.println("->" + current.toString());
-        int x = current.getHeight();
-        int y = current.getWidth();
-
-        visited[x][y] = true;
-
-        while (true) {
-
-            if (maze.canMoveTo(x - 1, y) && visited[x - 1][y] == false) {
-                Square next = new Square(x - 1, y);
-                util(next, visited);
-
-            }
-            if (maze.canMoveTo(x, y - 1) && !visited[x][y - 1] == false) {
-                Square next = new Square(x, y - 1);
-                util(next, visited);
-
-            }
-            if (maze.canMoveTo(x + 1, y) && !visited[x + 1][y] == false) {
-                Square next = new Square(x + 1, y);
-                util(next, visited);
-
-            }
-            if (maze.canMoveTo(x, y + 1) && !visited[x][y + 1] == false) {
-                Square next = new Square(x, y + 1);
-                util(next, visited);
-
-            }
-            break;
+            int x = cur.getHeight();
+            int y = cur.getWidth();
+            visited[x][y] = true;
         }
     }
 }
