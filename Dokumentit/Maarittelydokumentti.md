@@ -10,7 +10,7 @@ Labyrinti mallinnetaan kaksiuloitteisella listalla jossa kokonaisluvut kuvaavat 
 
 ## Labyrintin generoiminen
 
-Labyrinti generoidaan rekursiivisesti DFS-algoritmilla joka luo reittiä kunnes törmää kohtaan jossa ei ole mahdollista edetä, kuten kulmaan tai jo luotuun reittiin. Algoritmin reitti lisätään pinoon josta valitaan seuraava kohta josta reittiä voidaan jatkaa. Generoitu labyrintti on *simply connected* eli sen jokaisesta kohdasta on mahdollista liikkua kaikkiin jäljellä oleviin kohtiin.
+Labyrinti generoidaan rekursiivisesti DFS-algoritmilla joka luo reittiä kunnes törmää kohtaan jossa ei ole mahdollista edetä, kuten kulmaan tai jo luotuun reittiin. Algoritmin reitti lisätään pinoon josta valitaan seuraava kohta josta reittiä voidaan jatkaa. Generoitu labyrintti on *simply connected* eli sen jokaisesta kohdasta on mahdollista liikkua jokaiseen jälellä olevaan kohtaan.
 
 ## Ratkaisu
 
