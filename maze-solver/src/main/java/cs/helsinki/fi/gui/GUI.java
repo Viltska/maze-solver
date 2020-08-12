@@ -17,8 +17,8 @@ import javafx.scene.image.Image;
 public class GUI extends Application {
 
     // Maze size and scale settings.
-    private final Maze maze = new Maze(81, 81);
-    private final int scale = 12;
+    private final Maze maze = new Maze(41, 41);
+    private final int scale = 16;
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
     /**
