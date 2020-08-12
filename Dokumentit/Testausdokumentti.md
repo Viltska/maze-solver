@@ -1,20 +1,20 @@
 ## Testaus
 
-Ohjelma käyttää yksikkötestaukseen JUnit-kirjastoa. Testien tulokset ja raportit ilmestyvät projektikansioon /target, jossa niitä voidaan tarkastella
+Ohjelma käyttää yksikkötestaukseen JUnit-kirjastoa. Testien tulokset ja raportit ilmestyvät projektikansioon `/target`, jossa niitä voidaan tarkastella
 
 ## JUnit
 
 JUnit testis voidaan suorittaa komennolla `mvn test`. **HUOM** raporttien luomiseksi täytyy tämä komento suorittaa ensiksi.
 
-/target kansio voidaan poistaa komennolla `mvn clean`.
+`/target` kansio voidaan poistaa komennolla `mvn clean`.
 
 
 ### Testikattavuus -Jacoco
 
 Testikattavuus voidaan tarkistaa Jacoco-raportilla joka voidaan luoda komennolla `mvn jacoco:report`.
 
-/target kansioon ilmestyy /site kansio josta voidaan tarkastella testikattavuutta, tiedosto index.html kertoo koko ohjelman kattavuudesta.
+`/target` kansioon ilmestyy `/site` kansio josta voidaan tarkastella testikattavuutta, tiedosto `index.html` kertoo koko ohjelman kattavuudesta.
 
 ### Checkstyle
 
-Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`, jonka jälkeen /target/site kansioon ilmestyy tiedosto checkstyle.html, tästä nähdään koodissa olevia puutteita tai rikkeitä konventiossa.
+Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`, jonka jälkeen `/target/site` kansioon ilmestyy tiedosto checkstyle.html, tästä nähdään koodissa olevia puutteita tai rikkeitä konventiossa.
