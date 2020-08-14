@@ -4,27 +4,30 @@ Aikaa käytetty 18 tuntia.
 
 ## Tehty
 
-Luotu toimiva Wall Follower ratkaisualgoritmi
+Luotu ratkaisun löytävä Wall Follower-algoritmi.
 
 ## Ohjelman edistyminen
 
-Luotu solving pakettiin WallFollower luokka, muokattu Maze luokan metodeja
+Luotu solving pakettiin WallFollower luokka, muokattu Maze luokan metodeja.
 
 ## Viikolla opittua
 
-Wall Follower algoritmin toteutus
+Wall Follower algoritmin toteutus.
 
 ## Seuraavaksi
 
-* Algoritmin hienosäätö
+* Ratkaisualgoritmin kehittäminen.
 
-* Javan tietorakenteiden korvaaminen
+* Javan tietorakenteiden korvaaminen.
 
-* Testikattavuuden lisääminen
+* Testikattavuuden lisääminen.
 
 ## Ongelmia ja kysymyksiä
 
-* Stack overflow ongelmia kun **n < 1000** - ymmärtääkseni rekursio tallentaa stackiin monta versiota samasta ruudusta mutta en ole keksinyt parempaa ratkaisua. 
+* Rekursion vaihtaminen while-loopiin, muistin kannalta paljon parempi vaihtoehto?
 
-* Yksi idea on ollut laittaa muistiin viimeisin risteyskohta johon algoritmi palaisi jos se ajautuu umpikujaan.
+* Yksi idea on ollut laittaa muistiin viimeisin risteyskohta johon algoritmi palaisi jos se ajautuu umpikujaan tehokkuuden parantamiseksi?
 
+* Stack overflow kun n < 1000, varmaan ratkeaa while loopilla.
+
+* En ole vielä testannut algoritmin tehokkuutta, voi olla virheitä/ongelmia joita en ole ottanut huomioon.
