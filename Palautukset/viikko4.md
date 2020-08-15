@@ -1,6 +1,6 @@
 # Viikko 4
 
-Aikaa käytetty 18 tuntia.
+Aikaa käytetty 20 tuntia.
 
 ## Tehty
 
@@ -24,10 +24,10 @@ Wall Follower algoritmin toteutus.
 
 ## Ongelmia ja kysymyksiä
 
-* Rekursion vaihtaminen while-loopiin, muistin kannalta paljon parempi vaihtoehto?
+* Rekursion vaihtaminen while-loopiin pohjautuvaan ratkaisuun, onko muistin kannalta parempi vaihtoehto?
 
-* Yksi idea on ollut laittaa muistiin viimeisin risteyskohta johon algoritmi palaisi jos se ajautuu umpikujaan tehokkuuden parantamiseksi?
+* Yksi idea on ollut laittaa muistiin viimeisin risteyskohta johon algoritmi palaisi?
 
-* Stack overflow kun n < 1000, varmaan ratkeaa while loopilla.
+* Stack overflow ongelmia ilmestyy kun n < 1000.
 
-* En ole vielä testannut algoritmin tehokkuutta, voi olla virheitä/ongelmia joita en ole ottanut huomioon.
+* Virheitä tai ongelmia joita en ole ottanut huomioon.
