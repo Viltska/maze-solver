@@ -16,13 +16,16 @@ import javafx.scene.image.Image;
  */
 public class GUI extends Application {
 
-    // Maze size and scale settings.
+    // You can change height and width of tha maze here. 
     private final Maze maze = new Maze(41, 41);
-    private final int scale = 16;
+
+    // You can change the scale here
+    private final int scale = 14;
+
     private final Canvas canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
 
     /**
-     * Method for launching a GUI window. creates a Maze class.
+     * Launches a GUI window and draws the solved maze.
      *
      * @param stage - primary stage
      * @throws Exception - Application Exception
@@ -54,11 +57,8 @@ public class GUI extends Application {
     }
 
     /**
-     * Method for drawing the maze on canvas.
+     * Draws the current maze.
      *
-     * <p>
-     * Values convention: 0 = Path, 1 = Wall, 2 = Route, 3 = Start, 4 = Finish.
-     * <p>
      */
     public void draw() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -77,7 +77,7 @@ public class GUI extends Application {
                     gc.setFill(Color.DARKSLATEGRAY);
                     gc.fillRect(i, j, scale, scale);
                 }
-                // Route taken
+                // Visited path
                 if (square == 2) {
                     gc.setFill(Color.ANTIQUEWHITE);
                     gc.fillRect(i, j, scale, scale);

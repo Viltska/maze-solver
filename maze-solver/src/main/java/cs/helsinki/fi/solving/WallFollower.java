@@ -6,15 +6,9 @@ import java.util.ArrayList;
 /**
  * Wall Follower algorithm.
  *
+ * @author Ville Manninen
  */
 public class WallFollower {
-
-    public enum Direction {
-        UP,
-        LEFT,
-        RIGHT,
-        DOWN
-    }
 
     private Maze maze;
 
@@ -44,24 +38,6 @@ public class WallFollower {
         return path;
     }
 
-    /*
-    
-    Model reference
-    
-    moveTo(Position p, Direction d, String pathSoFar)
-   if atEndPosition(p)
-     return pathSoFar + p;
-
-   if canMoveRight(p, d)
-      result = moveTo(poitionToRight, directionToRight, pathSoFar + p)
-      if result return result
-   if canMoveForward(p, d)
-      result = moveTo(positionForward, d, pathSoFar + p)
-      if result return result
-   if canMoveLeft(p, d)
-      result = moveTo(positionToLeft, directionToLeft, pathSoFar + p)
-   return result
-     */
     /**
      * Used to move in wanted direction, will continue moving recursively before
      * reaching finish.
@@ -81,7 +57,7 @@ public class WallFollower {
         if (maze.getStart() != pos) {
             maze.setSquareValue(pos.getWidth(), pos.getHeight(), 2);
         }
-
+        // Can move right
         if (canMove(pos, getDirectionToRight(dir))) {
             Direction newDir = getDirectionToRight(dir);
             Square right = getSquareInDirection(pos, newDir);
@@ -90,6 +66,7 @@ public class WallFollower {
             return;
 
         }
+        // Can move forward
         if (canMove(pos, getDirectionToForward(dir))) {
             Direction newDir = getDirectionToForward(dir);
             Square forward = getSquareInDirection(pos, newDir);
@@ -98,13 +75,14 @@ public class WallFollower {
             return;
 
         }
+        // Can move left
         if (canMove(pos, getDirectionToLeft(dir))) {
             Direction newDir = getDirectionToLeft(dir);
             Square left = getSquareInDirection(pos, newDir);
             path.add(left);
             move(left, newDir, path);
 
-        } else {
+        } else { // Rotate counter clockwise
             Square back = getSquareInDirection(pos, reverse(dir));
             move(back, reverse(dir), path);
         }
@@ -233,13 +211,12 @@ public class WallFollower {
     }
 
     /**
-     * Return counter clockwise rotation of given direction, useful when facing
-     * a dead end inside the maze.
+     * Rotates given direction counter clockwise.
      *
      * @param direction - current direction
      * @return direction - rotated direction
      */
-    public Direction rotate(Direction direction) {
+    public Direction rotateLeft(Direction direction) {
         if (direction == Direction.UP) {
             return Direction.LEFT;
         }

@@ -7,7 +7,6 @@ import java.util.Random;
 /**
  * Class for creating a Maze.
  *
- * @version 1.0-SNAPSHOT
  * @author Ville Manninen
  */
 public class Maze {
@@ -97,7 +96,7 @@ public class Maze {
     }
 
     /**
-     * Method for calling a solving algorithm.
+     * Calls for solving algorithm.
      */
     public void solve() {
         WallFollower wf = new WallFollower(this);
@@ -105,8 +104,8 @@ public class Maze {
     }
 
     /**
-     * Method to get the value of a square. returns -1 if given coordinates are
-     * outside of the maze.
+     * Gets the value of a square. returns -1 if given coordinates are outside
+     * of the maze.
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -120,7 +119,7 @@ public class Maze {
     }
 
     /**
-     * Method for setting value on a Square. value must be between (0-4).
+     * Sets a value on the 2D-array, accepts values between 0 - 4.
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -135,7 +134,7 @@ public class Maze {
     }
 
     /**
-     * Method for checking if given coordinates are inside the maze.
+     * Checks if given coordinates are inside the maze.
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -146,8 +145,7 @@ public class Maze {
     }
 
     /**
-     * Utility method for checking if given values contain a path inside the
-     * grid, allows travel to start and route squares.
+     * Checks if coordinates contain an allowed path.
      *
      * @param x - width coordinate
      * @param y - height coordinate
@@ -164,7 +162,7 @@ public class Maze {
     }
 
     /**
-     * Method to get start Square. Returns null if start Square has not been
+     * Returns starting Square. Returns null if start Square has not been
      * initialized.
      *
      * @return Square - start Square
@@ -174,7 +172,7 @@ public class Maze {
     }
 
     /**
-     * Method to get finish Square. Returns null if finish Square has not been
+     * Returns finish Square. Returns null if finish Square has not been
      * initialized.
      *
      * @return Square - finish Square
@@ -184,25 +182,25 @@ public class Maze {
     }
 
     /**
-     * Method to get width.
+     * Returns width of the maze.
      *
-     * @return int - width of the array
+     * @return int - width of the maze[][] array.
      */
     public int getWidth() {
         return width;
     }
 
     /**
-     * Method to get height.
+     * Returns height of the maze.
      *
-     * @return int - height of the array
+     * @return int - height of the maze[][] array.
      */
     public int getHeight() {
         return height;
     }
 
     /**
-     * Method to get a String representation of the maze.
+     * Returns String representation of the maze[][] array.
      *
      * @return String - Maze as a String
      */
@@ -216,7 +214,6 @@ public class Maze {
             }
             sb.append("\n");
         }
-
         return sb.toString();
     }
 }
