@@ -1,6 +1,5 @@
 package cs.helsinki.fi.maze;
 
-import cs.helsinki.fi.solving.DFS;
 import cs.helsinki.fi.solving.WallFollower;
 import java.util.Random;
 
@@ -16,8 +15,10 @@ public class Maze {
     private final int[][] maze;
     private Square start;
     private Square finish;
-    private final Random random;
     private final Generate generate;
+
+    // TODO Replace
+    private final Random random;
 
     /**
      * Creates an empty Maze.

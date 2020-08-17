@@ -1,6 +1,6 @@
 package cs.helsinki.fi.maze;
 
-import java.util.ArrayDeque;
+import cs.helsinki.fi.util.SquareQue;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,6 +14,8 @@ public class Generate {
     private final Maze maze;
     private final int width;
     private final int height;
+
+    // TODO relpace
     private final Random random;
 
     /**
@@ -34,7 +36,7 @@ public class Generate {
      */
     public void generate() {
         maze.generateEmptyMaze();
-        ArrayDeque<Square> q = new ArrayDeque<>();
+        SquareQue sq = new SquareQue();
         boolean[][] visited = new boolean[width][height];
 
         // Marks borders of the maze as visited
@@ -51,20 +53,20 @@ public class Generate {
         Square current = maze.getStart();
         visited[current.getWidth()][current.getHeight()] = true;
         // Add to stack
-        q.add(current);
-        while (!q.isEmpty()) {
+        sq.add(current);
+        while (!sq.isEmpty()) {
 
             while (hasUnivisited(current, visited)) {
                 Square temp = current;
                 Square next = getUnivistedNeighbour(current, visited);
                 visited[next.getWidth()][next.getHeight()] = true;
-                q.add(next);
+                sq.add(next);
                 current = next;
                 maze.setSquareValue(next.getWidth(), next.getHeight(), 0);
                 removeWall(temp, next);
             }
             // if no univisited neighbours check previous square
-            current = q.pop();
+            current = sq.pop();
         }
     }
 
