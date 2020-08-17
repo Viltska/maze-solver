@@ -71,11 +71,6 @@ public class WallFollowerTest {
         assertEquals(Direction.RIGHT, wf.getDirectionToLeft(Direction.DOWN));
         assertEquals(Direction.UP, wf.getDirectionToLeft(Direction.RIGHT));
 
-        assertEquals(Direction.UP, wf.getDirectionToForward(Direction.UP));
-        assertEquals(Direction.LEFT, wf.getDirectionToForward(Direction.LEFT));
-        assertEquals(Direction.DOWN, wf.getDirectionToForward(Direction.DOWN));
-        assertEquals(Direction.RIGHT, wf.getDirectionToForward(Direction.RIGHT));
-
     }
 
     @Test

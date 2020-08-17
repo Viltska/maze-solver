@@ -51,7 +51,7 @@ public class SquareList {
      * @param i - Index of the Square
      * @return Square - Returns the square at the index
      */
-    public static Square getIndex(int i) {
+    public Square getIndex(int i) {
         if (i >= nextFree || i < 0) {
             return null;
         }
@@ -83,23 +83,6 @@ public class SquareList {
      */
     public boolean isEmpty() {
         return nextFree == 0;
-    }
-
-    /**
-     * Returns a random Square from the list.
-     *
-     * @return
-     */
-    public Square getRandom() {
-        if (nextFree > -1) {
-            if (nextFree == 1) {
-                return list[0];
-            }
-            int rnd = (int) (System.nanoTime() * 1000) % (nextFree - 1);
-            int i = rnd > 0 ? rnd : -rnd;
-            return list[i];
-        }
-        return null;
     }
 
     /**

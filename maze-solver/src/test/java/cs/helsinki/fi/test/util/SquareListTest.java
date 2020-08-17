@@ -84,30 +84,6 @@ public class SquareListTest {
     }
 
     @Test
-    public void getRandomTest() {
-        ArrayList<Square> list = new ArrayList<>();
-        SquareList sl = new SquareList();
-
-        for (int i = 0; i < 100; i++) {
-            Square s = new Square(i, 0);
-            list.add(s);
-            sl.add(s);
-        }
-
-        assertNotEquals(null, sl.getRandom());
-
-        Square rnd = sl.getRandom();
-        Square rnd2 = sl.getRandom();
-        Square rnd3 = sl.getRandom();
-
-        assertEquals(false, rnd == rnd2 && rnd == rnd3);
-
-        list.contains(rnd);
-        list.contains(rnd2);
-        list.contains(rnd3);
-    }
-
-    @Test
     public void resizeTest() {
         SquareList sl = new SquareList();
 

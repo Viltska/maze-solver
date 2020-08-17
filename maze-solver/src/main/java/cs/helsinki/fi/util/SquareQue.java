@@ -57,7 +57,7 @@ public class SquareQue {
     /**
      * Returns but doesn't remove the first Square of the queue.
      *
-     * @return
+     * @return Square - returns the first Square of the queue
      */
     public Square peek() {
         return first.getValue();

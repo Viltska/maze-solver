@@ -67,11 +67,10 @@ public class WallFollower {
 
         }
         // Can move forward
-        if (canMove(pos, getDirectionToForward(dir))) {
-            Direction newDir = getDirectionToForward(dir);
-            Square forward = getSquareInDirection(pos, newDir);
+        if (canMove(pos, dir)) {
+            Square forward = getSquareInDirection(pos, dir);
             path.add(forward);
-            move(forward, newDir, path);
+            move(forward, dir, path);
             return;
 
         }
@@ -114,7 +113,7 @@ public class WallFollower {
     }
 
     /**
-     * Returns reverse direction of given direction
+     * Returns reverse direction of given direction.
      *
      * @param dir - given direction
      * @return reverse - reverse direction
@@ -201,20 +200,10 @@ public class WallFollower {
     }
 
     /**
-     * Only for my peace of mind
-     *
-     * @param direction
-     * @return
-     */
-    public Direction getDirectionToForward(Direction direction) {
-        return direction;
-    }
-
-    /**
      * Rotates given direction counter clockwise.
      *
      * @param direction - current direction
-     * @return direction - rotated direction
+     * @return returned direction - rotated direction
      */
     public Direction rotateLeft(Direction direction) {
         if (direction == Direction.UP) {
