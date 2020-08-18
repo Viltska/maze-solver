@@ -18,4 +18,12 @@ Ohjelman voi myös suorittaa ilman paketointia komennolla `mvn compile exec:java
 
 ## Syötteet
 
-Ohjelma ei tällä hetkellä tue ulkoisia syötteitä vaan parametrien muuttaminen tapahtuu koodin sisällä.
+Käyttäjä voi valita minkä kokoisen labyrintin ohjelma ratkaisee.
+
+### Koko taulukko
+
+* Small - 20 x 20
+
+* Medium - 40 x 40
+
+* Large - 80 x 80

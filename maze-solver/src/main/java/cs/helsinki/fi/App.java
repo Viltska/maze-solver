@@ -6,7 +6,7 @@ import javafx.application.Application;
 /**
  * Main class for programs.
  *
- * @version 1.3-SNAPSHOT
+ * @version 1.5
  * @author Ville Manninen
  */
 public class App {

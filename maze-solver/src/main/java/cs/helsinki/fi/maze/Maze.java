@@ -1,6 +1,7 @@
 package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.solving.WallFollower;
+import cs.helsinki.fi.util.SquareList;
 import java.util.Random;
 
 /**
@@ -101,7 +102,13 @@ public class Maze {
      */
     public void solve() {
         WallFollower wf = new WallFollower(this);
-        wf.solve();
+        SquareList sl = wf.solve();
+
+        for (int i = 0; i < sl.size(); i++) {
+            Square current = sl.getIndex(i);
+            maze[current.getWidth()][current.getHeight()] = 2;
+        }
+        setSquareValue(start.getWidth(), start.getHeight(), 3);
     }
 
     /**

@@ -1,7 +1,7 @@
 package cs.helsinki.fi.solving;
 
 import cs.helsinki.fi.maze.*;
-import java.util.ArrayList;
+import cs.helsinki.fi.util.SquareList;
 
 /**
  * Wall Follower algorithm.
@@ -19,18 +19,17 @@ public class WallFollower {
      */
     public WallFollower(Maze maze) {
         this.maze = maze;
-
     }
 
     /**
-     * General method called from parent class for solving the maze.
+     * Finds a solution for the given maze and returns a SquareList containing
+     * the path.
      *
-     * @return Path - returns the path traversed
+     * @return Path - the path traversed
      */
-    public ArrayList<Square> solve() {
+    public SquareList solve() {
         Square start = maze.getStart();
-        ArrayList<Square> path = new ArrayList<>();
-
+        SquareList path = new SquareList();
         move(start, Direction.DOWN, path);
 
         maze.setSquareValue(start.getWidth(), start.getHeight(), 3);
@@ -45,45 +44,39 @@ public class WallFollower {
      * @param pos - Square of current position
      * @param dir - Direction of travel
      * @param path - Path taken so far
+     * @return SquareList - List of the path
      */
-    public void move(Square pos, Direction dir, ArrayList<Square> path) {
+    public SquareList move(Square pos, Direction dir, SquareList path) {
 
         // Reached finish
         if (maze.reachedFinish(pos)) {
-            maze.setSquareValue(pos.getWidth(), pos.getHeight(), 2);
-            return;
+            path.add(pos);
+            return path;
         }
-        // Mark if not at start
-        if (maze.getStart() != pos) {
-            maze.setSquareValue(pos.getWidth(), pos.getHeight(), 2);
-        }
+
         // Can move right
         if (canMove(pos, getDirectionToRight(dir))) {
             Direction newDir = getDirectionToRight(dir);
             Square right = getSquareInDirection(pos, newDir);
             path.add(right);
-            move(right, newDir, path);
-            return;
+            return move(right, newDir, path);
 
-        }
-        // Can move forward
-        if (canMove(pos, dir)) {
+        } // Can move forward
+        else if (canMove(pos, dir)) {
             Square forward = getSquareInDirection(pos, dir);
             path.add(forward);
-            move(forward, dir, path);
-            return;
+            return move(forward, dir, path);
 
-        }
-        // Can move left
-        if (canMove(pos, getDirectionToLeft(dir))) {
+        } // Can move left
+        else if (canMove(pos, getDirectionToLeft(dir))) {
             Direction newDir = getDirectionToLeft(dir);
             Square left = getSquareInDirection(pos, newDir);
             path.add(left);
-            move(left, newDir, path);
+            return move(left, newDir, path);
 
-        } else { // Rotate counter clockwise
+        } else {
             Square back = getSquareInDirection(pos, reverse(dir));
-            move(back, reverse(dir), path);
+            return move(back, reverse(dir), path);
         }
     }
 
