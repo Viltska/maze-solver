@@ -89,28 +89,23 @@ public class WallFollower {
      * @return SquareList - List of the path
      */
     public SquareList move(Square pos, Direction dir, SquareList path) {
-
-        // Reached finish
         if (maze.reachedFinish(pos)) {
             path.add(pos);
             return path;
         }
 
-        // Can move right
         if (canMove(pos, getDirectionToRight(dir))) {
             Direction newDir = getDirectionToRight(dir);
             Square right = getSquareInDirection(pos, newDir);
             path.add(right);
             return move(right, newDir, path);
 
-        } // Can move forward
-        else if (canMove(pos, dir)) {
+        } else if (canMove(pos, dir)) {
             Square forward = getSquareInDirection(pos, dir);
             path.add(forward);
             return move(forward, dir, path);
 
-        } // Can move left
-        else if (canMove(pos, getDirectionToLeft(dir))) {
+        } else if (canMove(pos, getDirectionToLeft(dir))) {
             Direction newDir = getDirectionToLeft(dir);
             Square left = getSquareInDirection(pos, newDir);
             path.add(left);

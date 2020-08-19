@@ -120,19 +120,19 @@ public class GUI extends Application {
             if (selectedString2.equals("Recursive")) {
                 String setting = "Recursive";
                 if (selectedString.equals("Small")) {
-                    stage.setScene(getSolveStage(21, 21, 18, setting));
+                    stage.setScene(getSolveScene(21, 21, 18, setting));
                     stage.setTitle("Maze generator - Recursive Small");
 
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveStage(41, 41, 16, setting));
+                    stage.setScene(getSolveScene(41, 41, 16, setting));
                     stage.setTitle("Maze generator - Recursive Medium");
 
                 }
                 // Stack overflow if over 100x100
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveStage(81, 81, 14, setting));
+                    stage.setScene(getSolveScene(81, 81, 14, setting));
                     stage.setTitle("Maze generator - Recursive Large");
 
                 }
@@ -140,19 +140,19 @@ public class GUI extends Application {
             } else {
                 String setting = "Loop";
                 if (selectedString.equals("Small")) {
-                    stage.setScene(getSolveStage(41, 41, 16, setting));
+                    stage.setScene(getSolveScene(41, 41, 16, setting));
                     stage.setTitle("Maze generator - Loop Small");
 
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveStage(81, 81, 14, setting));
+                    stage.setScene(getSolveScene(81, 81, 14, setting));
                     stage.setTitle("Maze generator - Loop Medium");
 
                 }
                 // Testing limits
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveStage(2001, 1001, 1, setting));
+                    stage.setScene(getSolveScene(2001, 1001, 1, setting));
                     stage.setTitle("Maze generator - Loop Large");
 
                 }
@@ -167,7 +167,7 @@ public class GUI extends Application {
     }
 
     /**
-     * Returns a canvas drawing of the solved maze
+     * Returns a canvas drawing of the solved maze.
      *
      * @param width - width of the maze that is solved
      * @param height - height of the maze that is solved
@@ -175,14 +175,14 @@ public class GUI extends Application {
      * @param setting - String name of the algorithm that is used
      * @return solvedScene - Scene with canvas of the solved maze
      */
-    public Scene getSolveStage(int width, int height, int scale, String setting) {
+    public Scene getSolveScene(int width, int height, int scale, String setting) {
         this.maze = new Maze(width, height);
         this.scale = scale;
 
         this.canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
         Group root = new Group();
         root.getChildren().add(canvas);
-        Scene s = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
+        Scene solveScene = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
         maze.generate();
 
         if (setting.equals("Recursive")) {
@@ -193,11 +193,11 @@ public class GUI extends Application {
             draw();
         }
 
-        return s;
+        return solveScene;
     }
 
     /**
-     * Draws the maze to canvas
+     * Draws the maze to canvas.
      *
      */
     public void draw() {

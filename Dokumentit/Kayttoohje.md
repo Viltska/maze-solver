@@ -18,12 +18,20 @@ Ohjelman voi myös suorittaa ilman paketointia komennolla `mvn compile exec:java
 
 ## Syötteet
 
-Käyttäjä voi valita minkä kokoisen labyrintin ohjelma ratkaisee.
+Käyttäjä voi valita minkä kokoisen labyrintin ohjelma ratkaisee sekä käytetäänkö rekursiivista vai while-loop ratkaisua.
 
-### Koko taulukko
+### Koko taulukko 
 
-* Small - 20 x 20
+Rekursiivinen koko, While-loop koko.
 
-* Medium - 40 x 40
+* Small - 20 x 20 ja 40 x 40
 
-* Large - 80 x 80
+* Medium - 40 x 40 ja 80 x 80
+
+* Large - 80 x 80 ja 2000 x 1000
+
+### Rekursiivinen tai While-loop
+
+* Rekursiivinen ratkaisulla on tällä hetkellä huono optimointi suurilla kutsuilla joten se on rajoitettu opertoimaan alle 100x100 kokoisilla taulukoilla.
+
+* While-loop ratkaisu ei aiheuta ongelmia muistin suhteen joten sillä voidaan ratkaista suurempiakin taulukoita. Valittaessa vaihtoehdot `Large` sekä While-loop ohjelma ratkaisee 2000x1000 kokoisen taulukon, tämä voi kestää riippuen tietokoneen tehosta.

@@ -1,19 +1,20 @@
 # Ohjelman rakenne
 
-Projekti on jaettu kolmeen pakettiin jotka sisältävät jonkin ohjelman osa-alueen.
+Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman osa-alueen.
 
 ## Paketit
 
-* `.maze` - Sisältää labyrintin luomiseen ja muokkaamiseen tarvittavat luokat.
+* `.maze` - Sisältää labyrintin luomiseen, muokkaamiseen sekä sen toimintaan liittyvät luokat.
 
 * `.gui` - Sisältää ohjelman graafisen käyttöliittymän.
 
-* `.solving` - Sisältää ohjelman ratkaisu algoritmin ja sen toimintaan tarvittavat luokat.
+* `.solving` - Sisältää ohjelman ratkaisu algoritmin sekä siihen liittyvät luokat.
+
+* `.util` - Sisältää ohjelman tarvitsemat tietorakenteet
 
 * `.testing` - Sisältää ohjelman testaamiseen tarvittavat luokat.
 
 ### Maze paketti
-Sisältää seuraavat luokat
 
 * Maze - luo ja hallitsee labyrintin logiikkaa ja opertointia.
 
@@ -22,16 +23,25 @@ Sisältää seuraavat luokat
 * Square - auttaa tallentamaan kaksiuloitteisen listan koordinaatit.
 
 ### Gui paketti
-Sisältää luokan
 
 * GUI - luo graafisen käyttöliittymän sekä luo, generoi ja ratkaisee Maze luokan joka esitetään käyttäjälle.
 
 ### Solving paketti
-Sisältää seuraavat luokat
 
 * WallFollower - Wall follower algoritmi joka etsii ratkaisun annetusta labyrintistä. 
 
+### Util paketti
+
+* SquareList - Itseään kasvattava lista johon voidaan lisätä Square luokan olioita.
+
+* SquareQue - Linkitetty lista joka muodostaa jonon Square luokan olioista, toimii nopeasti kun haetaan listan ensimmäinen tai viimeinen olio.
+
 ## Testitulokset
 
-Poislukien `cs.helsinki.fi.gui`, kaikki paketit ja luokat yksikkötestaan JUnit kirjastolla.
-Ohjelman tehokkuutta ei ole vielä testattu.
+### Yksikkötestaus
+
+Poislukien `cs.helsinki.fi.gui`, kaikki luokat yksikkötestaan JUnit kirjastolla, testit voidaan suorittaa komennolla `mvn test`.
+
+### Tehokkuustestaus
+
+Ohjelman tehokkuutta ei vielä ole testattu.
