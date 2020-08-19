@@ -93,31 +93,74 @@ public class GUI extends Application {
 
         gp.add(hb, 0, 1);
 
+        HBox hb2 = new HBox();
+        hb.setAlignment(Pos.CENTER);
+        ToggleGroup solveGroup = new ToggleGroup();
+        RadioButton sb1 = new RadioButton("While-loop");
+        sb1.setToggleGroup(solveGroup);
+        sb1.setSelected(true);
+        RadioButton sb2 = new RadioButton("Recursive");
+        sb2.setToggleGroup(solveGroup);
+
+        hb2.getChildren().addAll(sb1, sb2);
+        hb2.setPadding(new Insets(10));
+        hb2.setSpacing(20);
+
+        gp.add(hb2, 0, 2);
+
         Button btn = new Button("Solve");
 
         btn.setOnAction(e -> {
             RadioButton selected = (RadioButton) sizeGroup.getSelectedToggle();
             String selectedString = selected.getText();
 
-            if (selectedString.equals("Small")) {
-                stage.setScene(getSolveStage(21, 21, 18));
-                stage.setTitle("Maze generator - Small");
+            RadioButton selected2 = (RadioButton) solveGroup.getSelectedToggle();
+            String selectedString2 = selected2.getText();
 
-            }
-            if (selectedString.equals("Medium")) {
-                stage.setScene(getSolveStage(41, 41, 16));
-                stage.setTitle("Maze generator - Medium");
+            if (selectedString2.equals("Recursive")) {
+                String setting = "Recursive";
+                if (selectedString.equals("Small")) {
+                    stage.setScene(getSolveStage(21, 21, 18, setting));
+                    stage.setTitle("Maze generator - Recursive Small");
 
-            }
-            if (selectedString.equals("Large")) {
-                stage.setScene(getSolveStage(81, 81, 14));
-                stage.setTitle("Maze generator - Large");
+                }
 
+                if (selectedString.equals("Medium")) {
+                    stage.setScene(getSolveStage(41, 41, 16, setting));
+                    stage.setTitle("Maze generator - Recursive Medium");
+
+                }
+                // Stack overflow if over 100x100
+                if (selectedString.equals("Large")) {
+                    stage.setScene(getSolveStage(81, 81, 14, setting));
+                    stage.setTitle("Maze generator - Recursive Large");
+
+                }
+
+            } else {
+                String setting = "Loop";
+                if (selectedString.equals("Small")) {
+                    stage.setScene(getSolveStage(41, 41, 16, setting));
+                    stage.setTitle("Maze generator - Loop Small");
+
+                }
+
+                if (selectedString.equals("Medium")) {
+                    stage.setScene(getSolveStage(81, 81, 14, setting));
+                    stage.setTitle("Maze generator - Loop Medium");
+
+                }
+                // Testing limits
+                if (selectedString.equals("Large")) {
+                    stage.setScene(getSolveStage(2001, 1001, 1, setting));
+                    stage.setTitle("Maze generator - Loop Large");
+
+                }
             }
 
         });
 
-        gp.add(btn, 0, 2);
+        gp.add(btn, 0, 3);
 
         Scene start = new Scene(gp);
         return start;
@@ -129,9 +172,10 @@ public class GUI extends Application {
      * @param width - width of the maze that is solved
      * @param height - height of the maze that is solved
      * @param scale - scale of a square inside the maze
+     * @param setting - String name of the algorithm that is used
      * @return solvedScene - Scene with canvas of the solved maze
      */
-    public Scene getSolveStage(int width, int height, int scale) {
+    public Scene getSolveStage(int width, int height, int scale, String setting) {
         this.maze = new Maze(width, height);
         this.scale = scale;
 
@@ -140,8 +184,14 @@ public class GUI extends Application {
         root.getChildren().add(canvas);
         Scene s = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
         maze.generate();
-        maze.solve();
-        draw();
+
+        if (setting.equals("Recursive")) {
+            maze.solve(setting);
+            draw();
+        } else {
+            maze.solve();
+            draw();
+        }
 
         return s;
     }

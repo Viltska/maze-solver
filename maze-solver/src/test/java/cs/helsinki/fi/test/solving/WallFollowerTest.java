@@ -7,8 +7,7 @@ package cs.helsinki.fi.test.solving;
 
 import cs.helsinki.fi.maze.*;
 import cs.helsinki.fi.solving.*;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+import cs.helsinki.fi.util.SquareList;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,41 +19,10 @@ import static org.junit.Assert.*;
 public class WallFollowerTest {
 
     private Maze maze;
-    private Square start;
-    private Square finish;
 
     public WallFollowerTest() {
-        this.maze = new Maze(40, 40);
+        this.maze = new Maze(41, 41);
         maze.generate();
-        this.start = maze.getStart();
-        this.finish = maze.getFinish();
-    }
-
-    @Test
-    public void solveTest() {
-        // STACK OVERFLOW
-        /*
-        WallFollower wf = new WallFollower(maze);
-        System.out.println("Speed test on a maze the size of (" + maze.getWidth() + "x" + maze.getHeight() + ").");
-
-        long startTime = System.nanoTime();
-
-        ArrayList<Square> path = wf.solve();
-
-        long endTime = System.nanoTime();
-
-        Square last = path.get(path.size() - 1);
-
-        long elapsed = endTime - startTime;
-
-        assertEquals(true, maze.reachedFinish(last));
-        assertEquals(true, path.size() < (maze.getHeight() * maze.getWidth()));
-        assertEquals(true, (elapsed) < 15000000);
-
-        long toMilliseconds = TimeUnit.MILLISECONDS.convert(elapsed, TimeUnit.NANOSECONDS);
-
-        System.out.println("Solved in " + toMilliseconds + " ms.");
-         */
     }
 
     @Test
@@ -93,4 +61,19 @@ public class WallFollowerTest {
         assertEquals(Direction.LEFT, wf.reverse(Direction.RIGHT));
 
     }
+
+    @Test
+    public void solveTest() {
+        WallFollower wf = new WallFollower(maze);
+        SquareList sl = wf.solve();
+        assertEquals(true, maze.reachedFinish(sl.getIndex(sl.size() - 1)));
+    }
+
+    @Test
+    public void solveRecursiveTest() {
+        WallFollower wf = new WallFollower(maze);
+        SquareList sl = wf.solveRecursive();
+        assertEquals(true, maze.reachedFinish(sl.getIndex(sl.size() - 1)));
+    }
+
 }

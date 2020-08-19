@@ -22,18 +22,60 @@ public class WallFollower {
     }
 
     /**
-     * Finds a solution for the given maze and returns a SquareList containing
-     * the path.
+     * Finds a recursive solution for the given maze and returns a SquareList
+     * containing the path.
      *
      * @return Path - the path traversed
      */
-    public SquareList solve() {
+    public SquareList solveRecursive() {
         Square start = maze.getStart();
         SquareList path = new SquareList();
         move(start, Direction.DOWN, path);
 
         maze.setSquareValue(start.getWidth(), start.getHeight(), 3);
 
+        return path;
+    }
+
+    /**
+     * Finds a solution without recursion for the given maze and returns a
+     * SquareList containing the path.
+     *
+     * @return Path - the path traversed
+     */
+    public SquareList solve() {
+        Square current = maze.getStart();
+        Direction dir = Direction.DOWN;
+        SquareList path = new SquareList();
+
+        while (!maze.reachedFinish(current)) {
+            if (canMove(current, getDirectionToRight(dir))) {
+                Direction newDir = getDirectionToRight(dir);
+                Square right = getSquareInDirection(current, newDir);
+                path.add(right);
+                current = right;
+                dir = newDir;
+
+            } else if (canMove(current, dir)) {
+                Square forward = getSquareInDirection(current, dir);
+                path.add(forward);
+                current = forward;
+
+            } else if (canMove(current, getDirectionToLeft(dir))) {
+                Direction newDir = getDirectionToLeft(dir);
+                Square left = getSquareInDirection(current, newDir);
+                path.add(left);
+                current = left;
+                dir = newDir;
+
+            } else {
+                Direction newDir = reverse(dir);
+                Square back = getSquareInDirection(current, reverse(dir));
+                path.add(back);
+                current = back;
+                dir = newDir;
+            }
+        }
         return path;
     }
 

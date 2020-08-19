@@ -98,11 +98,36 @@ public class Maze {
     }
 
     /**
-     * Calls for solving algorithm.
+     * Solves the maze.
      */
     public void solve() {
+        System.out.println("Loop called");
         WallFollower wf = new WallFollower(this);
         SquareList sl = wf.solve();
+
+        for (int i = 0; i < sl.size(); i++) {
+            Square current = sl.getIndex(i);
+            maze[current.getWidth()][current.getHeight()] = 2;
+        }
+        setSquareValue(start.getWidth(), start.getHeight(), 3);
+    }
+
+    /**
+     * Solves the maze with chosen algorithm.
+     *
+     * @param setting - String name of the algorithm
+     */
+    public void solve(String setting) {
+        WallFollower wf = new WallFollower(this);
+        SquareList sl;
+
+        if (setting.equals("Recursive")) {
+            System.out.println("Recursive called");
+            sl = wf.solveRecursive();
+        } else {
+            System.out.println("Loop called in recursive");
+            sl = wf.solve();
+        }
 
         for (int i = 0; i < sl.size(); i++) {
             Square current = sl.getIndex(i);

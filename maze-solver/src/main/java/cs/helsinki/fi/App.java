@@ -17,6 +17,11 @@ public class App {
      * @param args - main class arguments.
      */
     public static void main(String[] args) {
-        Application.launch(GUI.class);
+        try {
+            Application.launch(GUI.class);
+        } catch (StackOverflowError e) {
+            System.out.println("Stack overflow error: " + e);
+
+        }
     }
 }
