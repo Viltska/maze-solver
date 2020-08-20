@@ -40,15 +40,6 @@ Aikaa käytetty 18 tuntia.
 #### Metodi joka aiheuttaa StackOverflowErroria, jos silmään osuu jotain
 
 <code>
-    /**
-     * Used to move in wanted direction, will continue moving recursively before
-     * reaching finish.
-     *
-     * @param pos - Square of current position
-     * @param dir - Direction of travel
-     * @param path - Path taken so far
-     * @return SquareList - List of the path
-     */
     public SquareList move(Square pos, Direction dir, SquareList path) {
         if (maze.reachedFinish(pos)) {
             path.add(pos);
