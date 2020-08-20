@@ -40,7 +40,6 @@ Aikaa käytetty 18 tuntia.
 #### Metodi joka aiheuttaa StackOverflowErroria, jos silmään osuu jotain
 
 <code>
-
     /**
      * Used to move in wanted direction, will continue moving recursively before
      * reaching finish.
@@ -78,5 +77,4 @@ Aikaa käytetty 18 tuntia.
             return move(back, reverse(dir), path);
         }
     }
-
 </code>
