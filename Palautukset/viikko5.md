@@ -40,6 +40,7 @@ Aikaa käytetty 18 tuntia.
 #### Metodi joka aiheuttaa StackOverflowErroria, jos silmään osuu jotain
 
 <code>
+    
     public SquareList move(Square pos, Direction dir, SquareList path) {
         if (maze.reachedFinish(pos)) {
             path.add(pos);
@@ -68,4 +69,5 @@ Aikaa käytetty 18 tuntia.
             return move(back, reverse(dir), path);
         }
     }
+    
 </code>
