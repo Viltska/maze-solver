@@ -22,3 +22,5 @@ Tarvittavat ohjelmat:
 * [Viikko 3](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko3.md)
 
 * [Viikko 4](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko4.md)
+
+* [Viikko 5](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko5.md)
