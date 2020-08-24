@@ -2,7 +2,7 @@
 
 ## Maven
 
-Ohjelma käyttää [Maven](https://maven.apache.org/) projektinhallintaa, joka täytyy olla asennettuna ohjelman ja testien suorittamiseksi.
+Ohjelma käyttää [Maven](https://maven.apache.org/) projektinhallintaa, joka täytyy olla asennettuna ohjelman ja testien suorittamiseksi paikallisesti.
 
 ## Komennot
 
@@ -18,17 +18,7 @@ Ohjelman voi myös suorittaa ilman paketointia komennolla `mvn compile exec:java
 
 ## Syötteet
 
-Käyttäjä voi valita minkä kokoisen labyrintin ohjelma ratkaisee sekä käytetäänkö rekursiivista vai while-loop ratkaisua.
-
-### Koko taulukko 
-
-Rekursiivinen koko, While-loop koko.
-
-* Small - 20 x 20 ja 40 x 40
-
-* Medium - 40 x 40 ja 80 x 80
-
-* Large - 80 x 80 ja 2000 x 1000
+Käyttäjä voi valita minkä kokoisen labyrintin ohjelma ratkaisee, sekä käytetäänkö rekursiivista- vai while-loop-algoritmia.
 
 ### Rekursiivinen tai While-loop
 
