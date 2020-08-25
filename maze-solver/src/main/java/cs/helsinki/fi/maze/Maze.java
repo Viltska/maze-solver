@@ -1,7 +1,9 @@
 package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.solving.WallFollower;
+import cs.helsinki.fi.util.RandomGenerator;
 import cs.helsinki.fi.util.SquareList;
+import cs.helsinki.fi.util.Timer;
 import java.util.Random;
 
 /**
@@ -17,9 +19,11 @@ public class Maze {
     private Square start;
     private Square finish;
     private final Generate generate;
+    private final Timer timer;
 
     // TODO Replace
     private final Random random;
+    private final RandomGenerator myRandom;
 
     /**
      * Creates an empty Maze.
@@ -32,6 +36,8 @@ public class Maze {
         this.height = height;
         this.maze = new int[this.width][this.height];
         this.random = new Random();
+        this.myRandom = new RandomGenerator();
+        this.timer = new Timer();
 
         // Maze generation class
         this.generate = new Generate(this);
@@ -51,7 +57,9 @@ public class Maze {
             }
         }
         start = new Square(1, 1);
-        finish = new Square(random.nextInt(width - 2) + 1, height - 2);
+
+        int randomWitdh = myRandom.generate((width - 2) + 1);
+        finish = new Square(randomWitdh, height - 2);
 
     }
 
@@ -61,11 +69,16 @@ public class Maze {
      * @see Generate.generate()
      */
     public void generate() {
+        timer.setStartCurrent();
+
         generateEmptyMaze();
         generate.generate();
 
         setSquareValue(start.getWidth(), start.getHeight(), 3);
         setSquareValue(finish.getWidth(), finish.getHeight(), 4);
+
+        timer.setEndCurrent();
+        System.out.println("Generated in " + timer.toString());
 
     }
 
@@ -103,7 +116,14 @@ public class Maze {
     public void solve() {
         System.out.println("Loop called");
         WallFollower wf = new WallFollower(this);
+
+        timer.setStartCurrent();
+
         SquareList sl = wf.solve();
+
+        timer.setEndCurrent();
+
+        System.out.println("Solved in " + timer.toString());
 
         for (int i = 0; i < sl.size(); i++) {
             Square current = sl.getIndex(i);
@@ -118,8 +138,11 @@ public class Maze {
      * @param setting - String name of the algorithm
      */
     public void solve(String setting) {
+
         WallFollower wf = new WallFollower(this);
         SquareList sl;
+
+        timer.setStartCurrent();
 
         if (setting.equals("Recursive")) {
             System.out.println("Recursive called");
@@ -128,6 +151,9 @@ public class Maze {
             System.out.println("Loop called in recursive");
             sl = wf.solve();
         }
+
+        timer.setEndCurrent();
+        System.out.println("Solved in " + timer.toString());
 
         for (int i = 0; i < sl.size(); i++) {
             Square current = sl.getIndex(i);

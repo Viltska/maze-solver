@@ -2,6 +2,7 @@ package cs.helsinki.fi.solving;
 
 import cs.helsinki.fi.maze.*;
 import cs.helsinki.fi.util.SquareList;
+import cs.helsinki.fi.util.SquareQue;
 
 /**
  * Wall Follower algorithm.

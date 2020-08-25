@@ -1,8 +1,8 @@
 package cs.helsinki.fi.maze;
 
+import cs.helsinki.fi.util.RandomGenerator;
 import cs.helsinki.fi.util.SquareQue;
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Class for generating a maze.
@@ -14,9 +14,7 @@ public class Generate {
     private final Maze maze;
     private final int width;
     private final int height;
-
-    // TODO relpace
-    private final Random random;
+    private final RandomGenerator myRandom;
 
     /**
      * Creates a class used to generate a random maze. Requires a Maze class.
@@ -27,7 +25,7 @@ public class Generate {
         this.maze = maze;
         this.width = maze.getWidth();
         this.height = maze.getHeight();
-        this.random = new Random();
+        this.myRandom = new RandomGenerator();
 
     }
 
@@ -160,7 +158,8 @@ public class Generate {
             neighbours.add(new Square(x, y - 2));
         }
         if (!neighbours.isEmpty()) {
-            return neighbours.get(random.nextInt(neighbours.size()));
+            int ownRandom = myRandom.generate(neighbours.size());
+            return neighbours.get(ownRandom);
         }
         return null;
     }

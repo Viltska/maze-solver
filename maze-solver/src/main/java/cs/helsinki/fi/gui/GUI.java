@@ -24,12 +24,13 @@ import javafx.scene.layout.HBox;
  */
 public class GUI extends Application {
 
+    private Stage stage;
+
     // You can change height and width of tha maze here. 
     private Maze maze;
 
     // You can change the scale here
     private int scale;
-
     private Canvas canvas;
 
     /**
@@ -58,6 +59,7 @@ public class GUI extends Application {
         stage.setMinWidth(400);
         stage.setMinHeight(400);
         stage.show();
+        this.stage = stage;
     }
 
     /**
@@ -120,19 +122,19 @@ public class GUI extends Application {
             if (selectedString2.equals("Recursive")) {
                 String setting = "Recursive";
                 if (selectedString.equals("Small")) {
-                    stage.setScene(getSolveScene(21, 21, 18, setting));
+                    stage.setScene(getSolveScene(21, 21, 16, setting));
                     stage.setTitle("Maze generator - Recursive Small");
 
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveScene(41, 41, 16, setting));
+                    stage.setScene(getSolveScene(41, 41, 14, setting));
                     stage.setTitle("Maze generator - Recursive Medium");
 
                 }
                 // Stack overflow if over 100x100
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveScene(81, 81, 14, setting));
+                    stage.setScene(getSolveScene(81, 81, 12, setting));
                     stage.setTitle("Maze generator - Recursive Large");
 
                 }
@@ -146,13 +148,12 @@ public class GUI extends Application {
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveScene(81, 81, 14, setting));
+                    stage.setScene(getSolveScene(81, 81, 12, setting));
                     stage.setTitle("Maze generator - Loop Medium");
 
                 }
-                // Testing limits
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveScene(2001, 1001, 1, setting));
+                    stage.setScene(getSolveScene(201, 201, 6, setting));
                     stage.setTitle("Maze generator - Loop Large");
 
                 }
@@ -161,6 +162,9 @@ public class GUI extends Application {
         });
 
         gp.add(btn, 0, 3);
+
+        gp.setMinWidth(400);
+        gp.setMinHeight(400);
 
         Scene start = new Scene(gp);
         return start;
@@ -182,6 +186,12 @@ public class GUI extends Application {
         this.canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
         Group root = new Group();
         root.getChildren().add(canvas);
+
+        Button returnButton = createReturnButton(stage);
+        returnButton.setTranslateX((width * scale) / 2);
+        returnButton.setTranslateY(10);
+        root.getChildren().add(returnButton);
+
         Scene solveScene = new Scene(root, maze.getWidth() * scale, maze.getHeight() * scale, Color.BLUE);
         maze.generate();
 
@@ -194,6 +204,23 @@ public class GUI extends Application {
         }
 
         return solveScene;
+    }
+
+    /**
+     * Creates a button that returns to start Scene.
+     *
+     * @param stage - main stage of the GUI
+     * @return Button - return button
+     */
+    public Button createReturnButton(Stage stage) {
+        Button button = new Button("Return");
+
+        button.setOnAction(e -> {
+            System.out.println("Return button pressed");
+            stage.setScene(getStartScene(stage));
+        });
+
+        return button;
     }
 
     /**
