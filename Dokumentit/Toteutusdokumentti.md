@@ -30,11 +30,19 @@ Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman os
 
 * WallFollower - Wall follower algoritmi joka etsii ratkaisun annetusta labyrintistä. 
 
+* Direction - Enum joka tallentaa WallFollower-luokan tarvitsemat suunnat (UP, DOWN , LEFT, RIGHT).
+
 ### Util paketti
 
 * SquareList - Itseään kasvattava lista johon voidaan lisätä Square luokan olioita.
 
 * SquareQue - Linkitetty lista joka muodostaa jonon Square luokan olioista, toimii nopeasti kun haetaan listan ensimmäinen tai viimeinen olio.
+
+* RandomGenerator - Generoi satunnaisia lukuja.
+
+* Timer - Luokka joka tallentaa käytettyä aikaa tietyn ohjelman kohdan suorittamiseen.
+
+* PerformanceTester - Testaa algoritmien ja tietorakenteiden tehokkuutta
 
 ## Testitulokset
 
