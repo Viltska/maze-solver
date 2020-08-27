@@ -2,9 +2,8 @@ package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.solving.WallFollower;
 import cs.helsinki.fi.util.RandomGenerator;
-import cs.helsinki.fi.util.SquareList;
+import cs.helsinki.fi.util.SquareQue;
 import cs.helsinki.fi.util.Timer;
-import java.util.Random;
 
 /**
  * Class for creating a Maze.
@@ -22,7 +21,6 @@ public class Maze {
     private final Timer timer;
 
     // TODO Replace
-    private final Random random;
     private final RandomGenerator myRandom;
 
     /**
@@ -35,7 +33,6 @@ public class Maze {
         this.width = width;
         this.height = height;
         this.maze = new int[this.width][this.height];
-        this.random = new Random();
         this.myRandom = new RandomGenerator();
         this.timer = new Timer();
 
@@ -44,7 +41,7 @@ public class Maze {
     }
 
     /**
-     * Method for generating an empty maze with start and finish Squares.
+     * Method for generating an empty maze with start and a finish.
      */
     public void generateEmptyMaze() {
         for (int i = 0; i < width; i++) {
@@ -57,7 +54,25 @@ public class Maze {
             }
         }
         start = new Square(1, 1);
+        finish = new Square(width - 2, height - 2);
 
+    }
+
+    /**
+     * Method for generating an empty maze with a random finish that will be one
+     * of the bottom squares of the maze.
+     */
+    public void generateEmptyMazeRandomEnd() {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                if (i == 0 || i == width - 1 || j == 0 || j == height - 1) {
+                    maze[i][j] = 1;
+                } else {
+                    maze[i][j] = 1;
+                }
+            }
+        }
+        start = new Square(1, 1);
         int randomWitdh = myRandom.generate((width - 2) + 1);
         finish = new Square(randomWitdh, height - 2);
 
@@ -69,16 +84,10 @@ public class Maze {
      * @see Generate.generate()
      */
     public void generate() {
-        timer.setStartCurrent();
-
-        generateEmptyMaze();
         generate.generate();
 
         setSquareValue(start.getWidth(), start.getHeight(), 3);
         setSquareValue(finish.getWidth(), finish.getHeight(), 4);
-
-        timer.setEndCurrent();
-        System.out.println("Generated in " + timer.toString());
 
     }
 
@@ -117,17 +126,18 @@ public class Maze {
         System.out.println("Loop called");
         WallFollower wf = new WallFollower(this);
 
-        timer.setStartCurrent();
+        timer.start();
 
-        SquareList sl = wf.solve();
+        SquareQue sl = wf.solve();
 
-        timer.setEndCurrent();
+        timer.end();
 
         System.out.println("Solved in " + timer.toString());
 
-        for (int i = 0; i < sl.size(); i++) {
-            Square current = sl.getIndex(i);
-            maze[current.getWidth()][current.getHeight()] = 2;
+        while (!sl.isEmpty()) {
+            Square cur = sl.pop();
+            maze[cur.getWidth()][cur.getHeight()] = 2;
+
         }
         setSquareValue(start.getWidth(), start.getHeight(), 3);
     }
@@ -138,11 +148,10 @@ public class Maze {
      * @param setting - String name of the algorithm
      */
     public void solve(String setting) {
-
         WallFollower wf = new WallFollower(this);
-        SquareList sl;
+        SquareQue sl;
 
-        timer.setStartCurrent();
+        timer.start();
 
         if (setting.equals("Recursive")) {
             System.out.println("Recursive called");
@@ -152,12 +161,13 @@ public class Maze {
             sl = wf.solve();
         }
 
-        timer.setEndCurrent();
+        timer.end();
         System.out.println("Solved in " + timer.toString());
 
-        for (int i = 0; i < sl.size(); i++) {
-            Square current = sl.getIndex(i);
-            maze[current.getWidth()][current.getHeight()] = 2;
+        while (!sl.isEmpty()) {
+            Square cur = sl.pop();
+            maze[cur.getWidth()][cur.getHeight()] = 2;
+
         }
         setSquareValue(start.getWidth(), start.getHeight(), 3);
     }

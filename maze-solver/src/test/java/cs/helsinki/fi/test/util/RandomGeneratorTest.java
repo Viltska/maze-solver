@@ -25,7 +25,7 @@ public class RandomGeneratorTest {
         assertEquals(true, r.generate(3) >= 0);
         assertEquals(true, r.generate(3) < 3);
         assertEquals(true, r.generate(1) < 1);
-        
+
         assertEquals(true, r.generate(1) >= 0);
         assertEquals(true, r.generate(0) == 0);
         assertEquals(true, r.generate(6) >= 0);

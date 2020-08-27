@@ -14,10 +14,6 @@ public class SquareTest {
     public SquareTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
     @Test
     public void testPair() {
         Square square = new Square(2, 4);

@@ -53,6 +53,8 @@
                 <configuration>
                     <excludes>
                         <exclude>cs/helsinki/fi/gui/**/*</exclude>
+                        <exclude>cs/helsinki/fi/App.java</exclude>
+                        <exclude>cs/helsinki/fi/util/PerformanceTester.java</exclude>
                     </excludes>
                 </configuration>
                 <executions>

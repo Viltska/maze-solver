@@ -89,6 +89,26 @@ public class MazeTest {
     }
 
     @Test
+    public void GenerateEmptyMazeRandomEndTest() {
+        Maze maze = new Maze(5, 5);
+        maze.generateEmptyMazeRandomEnd();
+
+        ArrayList<Integer> mazeList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                int val = maze.getSquareValue(i, j);
+                mazeList.add(val);
+            }
+        }
+        boolean containsWall = mazeList.stream().anyMatch(s -> (s == 1));
+        boolean containsEmpty = mazeList.stream().anyMatch(s -> (s == 0));
+
+        assertEquals(true, containsWall);
+        assertEquals(false, containsEmpty);
+
+    }
+
+    @Test
     public void insideGridTest() {
         Maze maze = new Maze(11, 11);
 
@@ -136,7 +156,7 @@ public class MazeTest {
         assertEquals(false, maze.canMoveTo(9, 9));
 
         assertEquals(false, maze.canMoveTo(-1, 0));
-        
+
         maze.setSquareValue(1, 2, 3);
         assertEquals(true, maze.canMoveTo(1, 2));
     }

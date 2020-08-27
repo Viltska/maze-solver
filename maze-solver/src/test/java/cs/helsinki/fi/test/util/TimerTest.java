@@ -24,8 +24,8 @@ public class TimerTest {
         timer.setStart(10000000);
         timer.setEnd(20000000);
 
-        assertEquals(1, timer.getMilliSeconds());
+        assertEquals(10, timer.getMilliSeconds());
         assertEquals(10000000, timer.getNanoSeconds());
-        
+
     }
 }

@@ -24,14 +24,14 @@ import javafx.scene.layout.HBox;
  */
 public class GUI extends Application {
 
-    private Stage stage;
+    private static Stage stage;
 
     // You can change height and width of tha maze here. 
-    private Maze maze;
+    private static Maze maze;
 
     // You can change the scale here
-    private int scale;
-    private Canvas canvas;
+    private static int scale;
+    private static Canvas canvas;
 
     /**
      * Launches a GUI window and draws the solved maze.
@@ -59,7 +59,7 @@ public class GUI extends Application {
         stage.setMinWidth(400);
         stage.setMinHeight(400);
         stage.show();
-        this.stage = stage;
+        GUI.stage = stage;
     }
 
     /**
@@ -68,7 +68,7 @@ public class GUI extends Application {
      * @param stage - main Stage of the Application
      * @return startScene - starting Scene
      */
-    public Scene getStartScene(Stage stage) {
+    public static Scene getStartScene(Stage stage) {
         GridPane gp = new GridPane();
         gp.setAlignment(Pos.CENTER);
         gp.setHgap(10);
@@ -179,11 +179,11 @@ public class GUI extends Application {
      * @param setting - String name of the algorithm that is used
      * @return solvedScene - Scene with canvas of the solved maze
      */
-    public Scene getSolveScene(int width, int height, int scale, String setting) {
-        this.maze = new Maze(width, height);
-        this.scale = scale;
+    public static Scene getSolveScene(int width, int height, int scale, String setting) {
+        GUI.maze = new Maze(width, height);
+        GUI.scale = scale;
 
-        this.canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
+        GUI.canvas = new Canvas(maze.getWidth() * scale, maze.getHeight() * scale);
         Group root = new Group();
         root.getChildren().add(canvas);
 
@@ -212,7 +212,7 @@ public class GUI extends Application {
      * @param stage - main stage of the GUI
      * @return Button - return button
      */
-    public Button createReturnButton(Stage stage) {
+    public static Button createReturnButton(Stage stage) {
         Button button = new Button("Return");
 
         button.setOnAction(e -> {
@@ -227,7 +227,7 @@ public class GUI extends Application {
      * Draws the maze to canvas.
      *
      */
-    public void draw() {
+    public static void draw() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         int square;
         for (int i = 0; i < maze.getWidth() * scale; i = i + scale) {

@@ -1,7 +1,6 @@
 package cs.helsinki.fi.solving;
 
 import cs.helsinki.fi.maze.*;
-import cs.helsinki.fi.util.SquareList;
 import cs.helsinki.fi.util.SquareQue;
 
 /**
@@ -11,7 +10,7 @@ import cs.helsinki.fi.util.SquareQue;
  */
 public class WallFollower {
 
-    private Maze maze;
+    private static Maze maze;
 
     /**
      * Creates a instance of WallFollower class.
@@ -19,7 +18,7 @@ public class WallFollower {
      * @param maze - Maze that the algorithm will use
      */
     public WallFollower(Maze maze) {
-        this.maze = maze;
+        WallFollower.maze = maze;
     }
 
     /**
@@ -28,9 +27,9 @@ public class WallFollower {
      *
      * @return Path - the path traversed
      */
-    public SquareList solveRecursive() {
+    public SquareQue solveRecursive() {
         Square start = maze.getStart();
-        SquareList path = new SquareList();
+        SquareQue path = new SquareQue();
         move(start, Direction.DOWN, path);
 
         maze.setSquareValue(start.getWidth(), start.getHeight(), 3);
@@ -44,10 +43,10 @@ public class WallFollower {
      *
      * @return Path - the path traversed
      */
-    public SquareList solve() {
+    public SquareQue solve() {
         Square current = maze.getStart();
         Direction dir = Direction.DOWN;
-        SquareList path = new SquareList();
+        SquareQue path = new SquareQue();
 
         while (!maze.reachedFinish(current)) {
             if (canMove(current, getDirectionToRight(dir))) {
@@ -76,6 +75,7 @@ public class WallFollower {
                 current = back;
                 dir = newDir;
             }
+
         }
         return path;
     }
@@ -89,32 +89,30 @@ public class WallFollower {
      * @param path - Path taken so far
      * @return SquareList - List of the path
      */
-    public SquareList move(Square pos, Direction dir, SquareList path) {
+    public SquareQue move(Square pos, Direction dir, SquareQue path) {
         if (maze.reachedFinish(pos)) {
             path.add(pos);
             return path;
         }
 
         if (canMove(pos, getDirectionToRight(dir))) {
-            Direction newDir = getDirectionToRight(dir);
-            Square right = getSquareInDirection(pos, newDir);
-            path.add(right);
-            return move(right, newDir, path);
+            pos = getSquareInDirection(pos, getDirectionToRight(dir));
+            path.add(pos);
+            return move(pos, getDirectionToRight(dir), path);
 
         } else if (canMove(pos, dir)) {
-            Square forward = getSquareInDirection(pos, dir);
-            path.add(forward);
-            return move(forward, dir, path);
+            pos = getSquareInDirection(pos, dir);
+            path.add(pos);
+            return move(pos, dir, path);
 
         } else if (canMove(pos, getDirectionToLeft(dir))) {
-            Direction newDir = getDirectionToLeft(dir);
-            Square left = getSquareInDirection(pos, newDir);
-            path.add(left);
-            return move(left, newDir, path);
+            pos = getSquareInDirection(pos, getDirectionToLeft(dir));
+            path.add(pos);
+            return move(pos, getDirectionToLeft(dir), path);
 
         } else {
-            Square back = getSquareInDirection(pos, reverse(dir));
-            return move(back, reverse(dir), path);
+            pos = getSquareInDirection(pos, reverse(dir));
+            return move(pos, reverse(dir), path);
         }
     }
 
@@ -125,7 +123,7 @@ public class WallFollower {
      * @param dir - direction of the next square
      * @return Square - neighbouring square in given direction
      */
-    public Square getSquareInDirection(Square pos, Direction dir) {
+    public static Square getSquareInDirection(Square pos, Direction dir) {
         int col = pos.getWidth();
         int row = pos.getHeight();
         if (dir == Direction.UP) {
@@ -149,7 +147,7 @@ public class WallFollower {
      * @param dir - given direction
      * @return reverse - reverse direction
      */
-    public Direction reverse(Direction dir) {
+    public static Direction reverse(Direction dir) {
         if (dir == Direction.UP) {
             return Direction.DOWN;
         }
@@ -170,7 +168,7 @@ public class WallFollower {
      * @param direction - Direction that is checked
      * @return Boolean - true if square in direction is possible to traverse to
      */
-    public boolean canMove(Square square, Direction direction) {
+    public static boolean canMove(Square square, Direction direction) {
         int col = square.getWidth();
         int row = square.getHeight();
 
@@ -196,7 +194,7 @@ public class WallFollower {
      * @param direction - direction currently traversed
      * @return directionToRight - right hand direction of given direction
      */
-    public Direction getDirectionToRight(Direction direction) {
+    public static Direction getDirectionToRight(Direction direction) {
         if (direction == Direction.UP) {
             return Direction.RIGHT;
         }
@@ -217,7 +215,7 @@ public class WallFollower {
      * @param direction - direction currently traversed
      * @return directionToLeft - left hand direction of given direction
      */
-    public Direction getDirectionToLeft(Direction direction) {
+    public static Direction getDirectionToLeft(Direction direction) {
         if (direction == Direction.UP) {
             return Direction.LEFT;
         }
@@ -236,7 +234,7 @@ public class WallFollower {
      * @param direction - current direction
      * @return returned direction - rotated direction
      */
-    public Direction rotateLeft(Direction direction) {
+    public static Direction rotateLeft(Direction direction) {
         if (direction == Direction.UP) {
             return Direction.LEFT;
         }

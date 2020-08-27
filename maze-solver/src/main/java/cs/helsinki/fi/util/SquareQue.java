@@ -3,7 +3,7 @@ package cs.helsinki.fi.util;
 import cs.helsinki.fi.maze.Square;
 
 /**
- * Que for holding Square values in a queue.
+ * Class for holding Square values in a queue - (Qué means 'what' in spanish).
  *
  * @author Ville Manninen
  */
@@ -61,6 +61,15 @@ public class SquareQue {
      */
     public Square peek() {
         return first.getValue();
+    }
+
+    /**
+     * Returns the last element of the list but doesn't remove it
+     *
+     * @return
+     */
+    public Square peekLast() {
+        return this.last.getValue();
     }
 
     /**

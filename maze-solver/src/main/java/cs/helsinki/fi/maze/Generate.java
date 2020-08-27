@@ -11,10 +11,10 @@ import java.util.ArrayList;
  */
 public class Generate {
 
-    private final Maze maze;
-    private final int width;
-    private final int height;
-    private final RandomGenerator myRandom;
+    private static Maze maze;
+    private static int width;
+    private static int height;
+    private static RandomGenerator myRandom;
 
     /**
      * Creates a class used to generate a random maze. Requires a Maze class.
@@ -22,10 +22,10 @@ public class Generate {
      * @param maze - maze that is used for generation
      */
     public Generate(Maze maze) {
-        this.maze = maze;
-        this.width = maze.getWidth();
-        this.height = maze.getHeight();
-        this.myRandom = new RandomGenerator();
+        Generate.maze = maze;
+        Generate.width = maze.getWidth();
+        Generate.height = maze.getHeight();
+        Generate.myRandom = new RandomGenerator();
 
     }
 
@@ -76,7 +76,7 @@ public class Generate {
      * @param visited - Boolean array of visited squares
      * @return unvisited - true if any neighbours are unvisited.
      */
-    public boolean hasUnivisited(Square square, boolean[][] visited) {
+    public static boolean hasUnivisited(Square square, boolean[][] visited) {
         boolean unvisited = false;
         int x = square.getWidth();
         int y = square.getHeight();
@@ -103,7 +103,7 @@ public class Generate {
      * @param current - current square
      * @param target - the target square
      */
-    public void removeWall(Square current, Square target) {
+    public static void removeWall(Square current, Square target) {
         int x = current.getWidth();
         int y = current.getHeight();
         int dX = target.getWidth();
@@ -140,7 +140,7 @@ public class Generate {
      * @param visited - Boolean 2D-array of visited squares inside the maze
      * @return Square - a random unvisited neighbour of the given square
      */
-    public Square getUnivistedNeighbour(Square square, boolean[][] visited) {
+    public static Square getUnivistedNeighbour(Square square, boolean[][] visited) {
         int x = square.getWidth();
         int y = square.getHeight();
         ArrayList<Square> neighbours = new ArrayList<>();

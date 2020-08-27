@@ -3,10 +3,13 @@ package cs.helsinki.fi.util;
 import cs.helsinki.fi.maze.Square;
 
 /**
- * ArrayList for storing Square class as items.
+ * Self resizing list for storing Square objects.
  *
  * @author Ville Manninen
+ * @deprecated since 1.6 (replaced by SquareQue)
+ * @see cs.helsinki.fi.util.SquareQue
  */
+@Deprecated
 public class SquareList {
 
     private static Square[] list;
