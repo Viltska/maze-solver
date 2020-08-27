@@ -14,7 +14,7 @@ Projekti voidaan rakentaa ja riippuvudet ladata komennolla `mvn build`.
 
 Ohjelma voidaan paketoida ja käynnistää käyttäen Mavenia komennolla `mvn package` jonka jälkeen /target kansioon ilmestyy suoritettava .jar tiedosto jolla ohjelma voidaan suorittaa.
 
-Ohjelman voi myös suorittaa ilman paketointia komennolla `mvn compile exec:java -Dexec.mainClass=cs.helsinki.fi.App`.
+Ohjelman voi myös suorittaa ilman paketointia komennolla `mvn compile exec:java -D exec.mainClass=cs.helsinki.fi.App`.
 
 ## Syötteet
 
