@@ -48,7 +48,7 @@ Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman os
 
 ### Yksikkötestaus
 
-Poislukien `cs.helsinki.fi.gui`, kaikki luokat yksikkötestaan JUnit kirjastolla, testit voidaan suorittaa komennolla `mvn test`.
+Poislukien `cs.helsinki.fi.gui` ja `PerformanceTester`, kaikki luokat yksikkötestaan JUnit kirjastolla, testit voidaan suorittaa komennolla `mvn test`.
 
 ### Tehokkuustestaus
 
