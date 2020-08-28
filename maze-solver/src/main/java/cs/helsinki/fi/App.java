@@ -23,7 +23,7 @@ public class App {
 
         } else {
             PerformanceTester pf = new PerformanceTester();
-            pf.runAll();
+            pf.runAllTests();
         }
     }
 }

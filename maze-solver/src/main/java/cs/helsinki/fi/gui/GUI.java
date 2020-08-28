@@ -122,39 +122,45 @@ public class GUI extends Application {
             if (selectedString2.equals("Recursive")) {
                 String setting = "Recursive";
                 if (selectedString.equals("Small")) {
-                    stage.setScene(getSolveScene(21, 21, 16, setting));
+                    stage.setScene(getSolveScene(41, 41, 12, setting));
                     stage.setTitle("Maze generator - Recursive Small");
+                    stage.centerOnScreen();
 
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveScene(41, 41, 14, setting));
+                    stage.setScene(getSolveScene(81, 81, 8, setting));
                     stage.setTitle("Maze generator - Recursive Medium");
+                    stage.centerOnScreen();
 
                 }
-                // Stack overflow if over 100x100
+                // StackOverflow error when over 500 x 500
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveScene(81, 81, 12, setting));
+                    stage.setScene(getSolveScene(201, 101, 6, setting));
                     stage.setTitle("Maze generator - Recursive Large");
+                    stage.centerOnScreen();
 
                 }
 
             } else {
                 String setting = "Loop";
                 if (selectedString.equals("Small")) {
-                    stage.setScene(getSolveScene(41, 41, 16, setting));
+                    stage.setScene(getSolveScene(41, 41, 12, setting));
                     stage.setTitle("Maze generator - Loop Small");
+                    stage.centerOnScreen();
 
                 }
 
                 if (selectedString.equals("Medium")) {
-                    stage.setScene(getSolveScene(81, 81, 12, setting));
+                    stage.setScene(getSolveScene(81, 81, 8, setting));
                     stage.setTitle("Maze generator - Loop Medium");
+                    stage.centerOnScreen();
 
                 }
                 if (selectedString.equals("Large")) {
-                    stage.setScene(getSolveScene(201, 201, 6, setting));
+                    stage.setScene(getSolveScene(201, 101, 6, setting));
                     stage.setTitle("Maze generator - Loop Large");
+                    stage.centerOnScreen();
 
                 }
             }
@@ -216,8 +222,8 @@ public class GUI extends Application {
         Button button = new Button("Return");
 
         button.setOnAction(e -> {
-            System.out.println("Return button pressed");
             stage.setScene(getStartScene(stage));
+            stage.centerOnScreen();
         });
 
         return button;

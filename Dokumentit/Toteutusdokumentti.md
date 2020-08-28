@@ -14,7 +14,7 @@ Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman os
 
 * `.testing` - Sisältää ohjelman testaamiseen tarvittavat luokat.
 
-### Maze paketti
+### Maze
 
 * Maze - luo ja hallitsee labyrintin logiikkaa ja opertointia.
 
@@ -22,17 +22,16 @@ Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman os
 
 * Square - auttaa tallentamaan kaksiuloitteisen listan koordinaatit.
 
-### Gui paketti
-
+### Gui
 * GUI - luo graafisen käyttöliittymän sekä luo, generoi ja ratkaisee Maze luokan joka esitetään käyttäjälle.
 
-### Solving paketti
+### Solving
 
 * WallFollower - Wall follower algoritmi joka etsii ratkaisun annetusta labyrintistä. 
 
 * Direction - Enum joka tallentaa WallFollower-luokan tarvitsemat suunnat (UP, DOWN , LEFT, RIGHT).
 
-### Util paketti
+### Util
 
 * SquareList - Itseään kasvattava lista johon voidaan lisätä Square luokan olioita.
 
@@ -42,9 +41,9 @@ Projekti on jaettu seuraaviin paketteihin jotka sisältävät tietyn ohjelman os
 
 * Timer - Luokka joka tallentaa käytettyä aikaa tietyn ohjelman kohdan suorittamiseen.
 
-* PerformanceTester - Testaa algoritmien ja tietorakenteiden tehokkuutta
+* PerformanceTester - Testaa algoritmien ja tietorakenteiden tehokkuutta.
 
-## Testitulokset
+## Testaus
 
 ### Yksikkötestaus
 
@@ -52,4 +51,4 @@ Poislukien `cs.helsinki.fi.gui` ja `PerformanceTester`, kaikki luokat yksikköte
 
 ### Tehokkuustestaus
 
-Ohjelman tehokkuutta ei vielä ole testattu.
+Ohjelman tehokkuutta testataan `PerformanceTester` luokan avulla, tarkempaa tietoa testaus dokumentissa.

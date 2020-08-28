@@ -1,4 +1,6 @@
-## Testaus
+# Ohjelman testit
+
+## Yksikkötestaus
 
 Ohjelma käyttää yksikkötestaukseen JUnit-kirjastoa. Testien tulokset ja raportit ilmestyvät projektikansioon `/target`, jossa niitä voidaan tarkastella
 
@@ -18,3 +20,7 @@ Testikattavuus voidaan tarkistaa Jacoco-raportilla joka voidaan luoda komennolla
 ### Checkstyle - Koodin tyyli
 
 Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`, jonka jälkeen `/target/site` kansioon ilmestyy tiedosto `checkstyle.html`, tästä nähdään koodissa olevia puutteita tai rikkeitä konventiossa.
+
+## Tehokkuustestaus
+
+Ohjelman tehokkuustestit kattavat ohjelman käyttämät Algoritmit ja algoritmien käyttämät tietorakenteet. Näihin kuuluvat siis `WallFollower` luokan metodit `solve()` ja `solveRecursive` sekä tietorakenne luokka `SquareQue`.

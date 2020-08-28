@@ -30,6 +30,7 @@ public class WallFollower {
     public SquareQue solveRecursive() {
         Square start = maze.getStart();
         SquareQue path = new SquareQue();
+        
         move(start, Direction.DOWN, path);
 
         maze.setSquareValue(start.getWidth(), start.getHeight(), 3);
@@ -38,8 +39,8 @@ public class WallFollower {
     }
 
     /**
-     * Finds a solution without recursion for the given maze and returns a
-     * SquareList containing the path.
+     * Finds a iterative solution for the given maze and returns a
+     * SquareQue containing the path traversed.
      *
      * @return Path - the path traversed
      */
@@ -81,20 +82,22 @@ public class WallFollower {
     }
 
     /**
-     * Used to move in wanted direction, will continue moving recursively before
-     * reaching finish.
-     *
+     * Used to move in wanted direction, will continue moving recursively until
+     * reaching a square nest to mazes finish square. 
+     * 
+     * @see solveRecursive
      * @param pos - Square of current position
-     * @param dir - Direction of travel
+     * @param dir - Direction of current travel
      * @param path - Path taken so far
-     * @return SquareList - List of the path
+     * @return SquareQue - List of the path traversed (after reaching finish)
      */
     public SquareQue move(Square pos, Direction dir, SquareQue path) {
         if (maze.reachedFinish(pos)) {
             path.add(pos);
             return path;
-        }
 
+        }
+        
         if (canMove(pos, getDirectionToRight(dir))) {
             pos = getSquareInDirection(pos, getDirectionToRight(dir));
             path.add(pos);
@@ -111,9 +114,11 @@ public class WallFollower {
             return move(pos, getDirectionToLeft(dir), path);
 
         } else {
+
             pos = getSquareInDirection(pos, reverse(dir));
             return move(pos, reverse(dir), path);
         }
+
     }
 
     /**
@@ -121,7 +126,7 @@ public class WallFollower {
      *
      * @param pos - current position
      * @param dir - direction of the next square
-     * @return Square - neighbouring square in given direction
+     * @return Square - the square in given direction
      */
     public static Square getSquareInDirection(Square pos, Direction dir) {
         int col = pos.getWidth();
