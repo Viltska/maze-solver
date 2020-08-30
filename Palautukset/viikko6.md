@@ -1,6 +1,6 @@
-# Viikko 5
+# Viikko 6
 
-Aikaa käytetty 14 tuntia.
+Aikaa käytetty 16 tuntia.
 
 ## Tehty
 
@@ -35,7 +35,3 @@ Aikaa käytetty 14 tuntia.
 * Demon valmistelu
 
 ## Ongelmia ja kysymyksiä
-
-* Rekursiivinen ratkaisu luultavasti muistivuotoa ja aiheuttaa StackOverflow-virheitä riippuen koneesta kun n on noin 1000-5000. En löytänyt ratkaisua joten aion turvautua iteratiiviseen ratkaisuun.
-
-* Jätän rekursiivisen algoritmin tehokkuustestauksen ulkopuolelle.

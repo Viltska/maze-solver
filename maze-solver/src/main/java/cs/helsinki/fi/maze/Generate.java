@@ -1,7 +1,7 @@
 package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.util.RandomGenerator;
-import cs.helsinki.fi.util.SquareQue;
+import cs.helsinki.fi.util.SquareQueue;
 import java.util.ArrayList;
 
 /**
@@ -34,7 +34,7 @@ public class Generate {
      */
     public void generate() {
         maze.generateEmptyMaze();
-        SquareQue sq = new SquareQue();
+        SquareQueue sq = new SquareQueue();
         boolean[][] visited = new boolean[width][height];
 
         // Marks borders of the maze as visited

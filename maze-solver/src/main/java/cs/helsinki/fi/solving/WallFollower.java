@@ -1,7 +1,7 @@
 package cs.helsinki.fi.solving;
 
 import cs.helsinki.fi.maze.*;
-import cs.helsinki.fi.util.SquareQue;
+import cs.helsinki.fi.util.SquareQueue;
 
 /**
  * Wall Follower algorithm.
@@ -27,10 +27,10 @@ public class WallFollower {
      *
      * @return Path - the path traversed
      */
-    public SquareQue solveRecursive() {
+    public SquareQueue solveRecursive() {
         Square start = maze.getStart();
-        SquareQue path = new SquareQue();
-        
+        SquareQueue path = new SquareQueue();
+
         move(start, Direction.DOWN, path);
 
         maze.setSquareValue(start.getWidth(), start.getHeight(), 3);
@@ -39,65 +39,60 @@ public class WallFollower {
     }
 
     /**
-     * Finds a iterative solution for the given maze and returns a
-     * SquareQue containing the path traversed.
+     * Finds a iterative solution for the given maze and returns a SquareQue
+     * containing the path traversed.
      *
      * @return Path - the path traversed
      */
-    public SquareQue solve() {
+    public SquareQueue solve() {
         Square current = maze.getStart();
         Direction dir = Direction.DOWN;
-        SquareQue path = new SquareQue();
+        SquareQueue path = new SquareQueue();
 
         while (!maze.reachedFinish(current)) {
             if (canMove(current, getDirectionToRight(dir))) {
                 Direction newDir = getDirectionToRight(dir);
-                Square right = getSquareInDirection(current, newDir);
-                path.add(right);
-                current = right;
+                current = getSquareInDirection(current, newDir);
                 dir = newDir;
+                path.add(current);
 
             } else if (canMove(current, dir)) {
-                Square forward = getSquareInDirection(current, dir);
-                path.add(forward);
-                current = forward;
+                current = getSquareInDirection(current, dir);
+                path.add(current);
 
             } else if (canMove(current, getDirectionToLeft(dir))) {
                 Direction newDir = getDirectionToLeft(dir);
-                Square left = getSquareInDirection(current, newDir);
-                path.add(left);
-                current = left;
+                current = getSquareInDirection(current, newDir);
                 dir = newDir;
+                path.add(current);
 
             } else {
                 Direction newDir = reverse(dir);
-                Square back = getSquareInDirection(current, reverse(dir));
-                path.add(back);
-                current = back;
+                current = getSquareInDirection(current, reverse(dir));
                 dir = newDir;
-            }
+                path.add(current);
 
+            }
         }
         return path;
     }
 
     /**
      * Used to move in wanted direction, will continue moving recursively until
-     * reaching a square nest to mazes finish square. 
-     * 
+     * reaching a square nest to mazes finish square.
+     *
      * @see solveRecursive
      * @param pos - Square of current position
      * @param dir - Direction of current travel
      * @param path - Path taken so far
      * @return SquareQue - List of the path traversed (after reaching finish)
      */
-    public SquareQue move(Square pos, Direction dir, SquareQue path) {
+    public SquareQueue move(Square pos, Direction dir, SquareQueue path) {
         if (maze.reachedFinish(pos)) {
             path.add(pos);
             return path;
-
         }
-        
+
         if (canMove(pos, getDirectionToRight(dir))) {
             pos = getSquareInDirection(pos, getDirectionToRight(dir));
             path.add(pos);
@@ -114,7 +109,6 @@ public class WallFollower {
             return move(pos, getDirectionToLeft(dir), path);
 
         } else {
-
             pos = getSquareInDirection(pos, reverse(dir));
             return move(pos, reverse(dir), path);
         }

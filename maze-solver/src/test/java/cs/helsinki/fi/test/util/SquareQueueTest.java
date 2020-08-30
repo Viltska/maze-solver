@@ -6,7 +6,7 @@
 package cs.helsinki.fi.test.util;
 
 import cs.helsinki.fi.maze.Square;
-import cs.helsinki.fi.util.SquareQue;
+import cs.helsinki.fi.util.SquareQueue;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,21 +14,21 @@ import static org.junit.Assert.*;
  *
  * @author Ville Manninen
  */
-public class SquareQueTest {
+public class SquareQueueTest {
 
-    public SquareQueTest() {
+    public SquareQueueTest() {
     }
 
     @Test
     public void initTest() {
-        SquareQue sq = new SquareQue();
+        SquareQueue sq = new SquareQueue();
         assertEquals(true, sq.isEmpty());
 
     }
 
     @Test
     public void addTest() {
-        SquareQue sq = new SquareQue();
+        SquareQueue sq = new SquareQueue();
         Square s = new Square(0, 0);
         sq.add(s);
 
@@ -39,7 +39,7 @@ public class SquareQueTest {
 
     @Test
     public void removeTest() {
-        SquareQue sq = new SquareQue();
+        SquareQueue sq = new SquareQueue();
         Square s = new Square(0, 0);
         sq.add(s);
         assertEquals(false, sq.isEmpty());
@@ -52,7 +52,7 @@ public class SquareQueTest {
 
     @Test
     public void linkedTest() {
-        SquareQue sq = new SquareQue();
+        SquareQueue sq = new SquareQueue();
 
         Square s1 = new Square(1, 0);
         Square s2 = new Square(2, 0);

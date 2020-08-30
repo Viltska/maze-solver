@@ -2,7 +2,7 @@ package cs.helsinki.fi.maze;
 
 import cs.helsinki.fi.solving.WallFollower;
 import cs.helsinki.fi.util.RandomGenerator;
-import cs.helsinki.fi.util.SquareQue;
+import cs.helsinki.fi.util.SquareQueue;
 import cs.helsinki.fi.util.Timer;
 
 /**
@@ -128,7 +128,7 @@ public class Maze {
 
         timer.start();
 
-        SquareQue sl = wf.solve();
+        SquareQueue sl = wf.solve();
 
         timer.end();
 
@@ -149,7 +149,7 @@ public class Maze {
      */
     public void solve(String setting) {
         WallFollower wf = new WallFollower(this);
-        SquareQue sl;
+        SquareQueue sl;
 
         timer.start();
 

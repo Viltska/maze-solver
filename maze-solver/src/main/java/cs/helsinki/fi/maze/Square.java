@@ -5,10 +5,10 @@ package cs.helsinki.fi.maze;
  *
  * @author Ville Manninen
  */
-public class Square {
+public class Square{
 
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
 
     /**
      * Creates a Pair of values.
@@ -23,12 +23,28 @@ public class Square {
 
     public int getWidth() {
         return this.x;
-
     }
 
     public int getHeight() {
         return this.y;
+    }
 
+    public void setWidth(int x) {
+        this.x = x;
+    }
+
+    public void setHeight(int y) {
+        this.y = y;
+    }
+
+    /**
+     * Checks if given squares x and y match this squares x and y.
+     *
+     * @param square - square that is compared
+     * @return Boolean - true if x and y is the same
+     */
+    public boolean equals(Square square) {
+        return this.x == square.getWidth() && this.y == square.getHeight();
     }
 
     @Override

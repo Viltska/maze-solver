@@ -7,7 +7,7 @@ package cs.helsinki.fi.test.solving;
 
 import cs.helsinki.fi.maze.*;
 import cs.helsinki.fi.solving.*;
-import cs.helsinki.fi.util.SquareQue;
+import cs.helsinki.fi.util.SquareQueue;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -65,14 +65,14 @@ public class WallFollowerTest {
     @Test
     public void solveTest() {
         WallFollower wf = new WallFollower(maze);
-        SquareQue sl = wf.solve();
+        SquareQueue sl = wf.solve();
         assertEquals(true, maze.reachedFinish(sl.peekLast()));
     }
 
     @Test
     public void solveRecursiveTest() {
         WallFollower wf = new WallFollower(maze);
-        SquareQue sl = wf.solveRecursive();
+        SquareQueue sl = wf.solveRecursive();
         assertEquals(true, maze.reachedFinish(sl.peekLast()));
     }
 

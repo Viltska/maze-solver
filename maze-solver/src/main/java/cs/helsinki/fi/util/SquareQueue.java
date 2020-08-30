@@ -3,19 +3,19 @@ package cs.helsinki.fi.util;
 import cs.helsinki.fi.maze.Square;
 
 /**
- * Class for holding Square values in a queue - (Qué means 'what' in spanish).
+ * Holds Square values in a queue.
  *
  * @author Ville Manninen
  */
-public class SquareQue {
+public class SquareQueue {
 
     private Node first;
     private Node last;
 
     /**
-     * Creates an empty SquareQue.
+     * Creates an empty queue.
      */
-    public SquareQue() {
+    public SquareQueue() {
 
     }
 
@@ -43,13 +43,13 @@ public class SquareQue {
      */
     public Square pop() {
         if (first.getNext() != null) {
-            Square s = first.getValue();
+            Square s = first.getSquare();
             Node temp = first.getNext();
             first = null;
             first = temp;
             return s;
         }
-        Square s = first.getValue();
+        Square s = first.getSquare();
         first = null;
         return s;
     }
@@ -60,7 +60,7 @@ public class SquareQue {
      * @return Square - returns the first Square of the queue
      */
     public Square peek() {
-        return first.getValue();
+        return first.getSquare();
     }
 
     /**
@@ -69,7 +69,7 @@ public class SquareQue {
      * @return
      */
     public Square peekLast() {
-        return this.last.getValue();
+        return this.last.getSquare();
     }
 
     /**
@@ -89,7 +89,7 @@ public class SquareQue {
  */
 class Node {
 
-    private Square s;
+    private final Square s;
     private Node next;
 
     /**
@@ -124,7 +124,7 @@ class Node {
      *
      * @return square - Square that is assigned to this node.
      */
-    public Square getValue() {
+    public Square getSquare() {
         return this.s;
     }
 }
