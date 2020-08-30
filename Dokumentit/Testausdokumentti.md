@@ -4,11 +4,11 @@ Testit on jaettu tehokkuus- ja yksikkötesteihin, tehokkuustestit mittaavat ohje
 
 ## Tehokkuustestit
 
-Tehokkustestaus kattaa luokat `Generate`, `WallFollower` ja `SquareQueue`. Testit voidaan suorittaa paikallisesti suorittamalla ohjelma argumentilla test.
+Tehokkustestaus kattaa luokat `Generate`, `WallFollower` ja `SquareQueue`. Testit voidaan suorittaa paikallisesti suorittamalla ohjelma argumentilla test, tällöin testit suoritetaan peräkkäin joten tulokset voivat vaihdella.
 
 ### Algoritmit
 
-Testattu ajamalla testit kymmenen kertaa per koko, ja kirjaamalla testien käyttämän ajan keskiarvo.
+Testit suoritetaan  kymmenen kertaa per koko, jonka jälkeen kirjataan testien käyttämän ajan keskiarvo.
 
 ### Labyrintin generoiminen
 
@@ -24,9 +24,11 @@ Labyrintin generoiminen tapahtuu DFS-algoritmin avulla joka käyttää SquareQue
 | 1 000 x 1 000   | 240 ms.    |
 | 2 000 x 2 000   | 260 ms.    |
 
+Generointialgoritmin aikavaatimus on lineaarinen O(n).
+
 ### Labyrintin ratkaisu
 
-Wall Follower ratkaisualgoritmi.
+Wall Follower ratkaisualgoritmi. Mittaustulokset vaihtelevat riippuen tietokoneen tehokkuudesta sekä Javalle sallitun muistin määrästä.
 
 | Labyrintin koko | Aika      |
 | :---            | ---:      |
@@ -37,6 +39,10 @@ Wall Follower ratkaisualgoritmi.
 | 800 x 800       | 10 ms.    |
 | 1 000 x 1 000   | 15 ms.    |
 | 2 000 x 2 000   | 20 ms.    |
+
+Aikavaatimuksen määritelmä kun n = tarkastettavien ruutujen määrä. N voidaan määritellä kaavalla leveys x korkeus / 2, määrä puolitetaan sillä otetaan huomioon labyrintin seinämät joita algoritmin ei tarvitse tarkastella.
+
+Määritelmää käyttäen algoritmin aikavaatimus on lineaarinen O(n). 
 
 ### Tietorakenteet
 
