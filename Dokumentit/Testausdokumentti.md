@@ -6,6 +6,8 @@ Testit on jaettu tehokkuus- ja yksikkötesteihin, tehokkuustestit mittaavat ohje
 
 Tehokkustestaus kattaa luokat `Generate`, `WallFollower` ja `SquareQueue`. Testit voidaan suorittaa paikallisesti suorittamalla ohjelma argumentilla test, tällöin testit suoritetaan peräkkäin joten tulokset voivat vaihdella.
 
+Testit suoritettu: MacBook Air 2010 Intel i5 @1.60GHz.
+
 ### Algoritmit
 
 Testit suoritetaan  kymmenen kertaa per koko, jonka jälkeen kirjataan testien käyttämän ajan keskiarvo.
@@ -52,22 +54,6 @@ Määritelmää käyttäen algoritmin aikavaatimus on lineaarinen O(n).
   
   * 100 miljoonaa poistoa sekunnissa.
 
-## Koodin testaaminen
+## Testikattavuus
 
-Testiraportit ilmestyvät /target kansioon, josta tuloksia voidaan tarkastella /site kansion html tiedostojen avulla.
-
-### JUnit - Yksikkötestaus
-
-JUnit testit voidaan suorittaa komennolla `mvn test`.
-
-Testitulokset ja raportit voidaan poistaa komennolla `mvn clean`.
-
-### Jacoco - Testikattavuus
-
-Testikattavuus voidaan tarkistaa Jacoco liitännäisen luoman raportin avulla, raportti luodaan komennolla `mvn jacoco:report`.
-
-Tämän jälkeen /target kansioon ilmestyy kansio /site josta  nähdään ohjelman  yksikköstestauksen kattavuutta (index.html).
-
-### Checkstyle - Tyyliraportti
-
-Checkstyle raportti voidaan luoda komennolla `mvn checkstyle:checkstyle`. Koodin tyyliraportti ja mahdolliset virheet ilmestyvät tiedostoon (checkstyle.html), 
+Testikattavuuden ulkopuolelle on jätetty tarkoituksella gui-paketti sekä PerformanceTester-luokka.
