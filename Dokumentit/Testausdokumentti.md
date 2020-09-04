@@ -30,7 +30,7 @@ Generointialgoritmin aikavaatimus on lineaarinen O(n).
 
 ### Labyrintin ratkaisu
 
-Wall Follower ratkaisualgoritmi. Mittaustulokset vaihtelevat riippuen tietokoneen tehokkuudesta sekä Javalle sallitun muistin määrästä.
+Wall Follower ratkaisualgoritmi, testit on suoritettu nopeammalla iteratiivisella ratkaisulla. Mittaustulokset vaihtelevat riippuen tietokoneen tehokkuudesta sekä Javalle sallitun muistin määrästä.
 
 | Labyrintin koko | Aika      |
 | :---            | ---:      |
@@ -57,3 +57,5 @@ Määritelmää käyttäen algoritmin aikavaatimus on lineaarinen O(n).
 ## Testikattavuus
 
 Testikattavuuden ulkopuolelle on jätetty tarkoituksella gui-paketti sekä PerformanceTester-luokka.
+
+![](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Images/testikattavuus.png)
