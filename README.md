@@ -15,14 +15,14 @@ Tarvittavat ohjelmat:
 
 ## Viikkopalautukset
 
-* [Viikko 1](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko1.md)
+* [Viikko 1](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko1.md)
 
-* [Viikko 2](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko2.md)
+* [Viikko 2](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko2.md)
 
-* [Viikko 3](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko3.md)
+* [Viikko 3](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko3.md)
 
-* [Viikko 4](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko4.md)
+* [Viikko 4](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko4.md)
 
-* [Viikko 5](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko5.md)
+* [Viikko 5](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko5.md)
 
-* [Viikko 6](https://github.com/Viltska/maze-solver/blob/master/Palautukset/viikko6.md)
+* [Viikko 6](https://github.com/Viltska/maze-solver/blob/master/Dokumentit/Palautukset/viikko6.md)

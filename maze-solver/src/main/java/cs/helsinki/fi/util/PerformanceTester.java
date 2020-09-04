@@ -16,7 +16,7 @@ public class PerformanceTester {
     private static Timer timer;
 
     /**
-     * Creates a PerformanceTester
+     * Creates a PerformanceTester.
      */
     public PerformanceTester() {
         PerformanceTester.timer = new Timer();
@@ -26,24 +26,35 @@ public class PerformanceTester {
      * Runs all tests.
      */
     public void runAllTests() {
-        System.out.println("Running performance Tests..\n");
+        try {
+            System.out.println("Running all performance tests..\n");
 
-        System.out.println("\n--- SquareQue Tests ---");
+            System.out.println("\n--- SquareQue Tests ---");
 
-        queTest(10000000);
+            queTest(10000000);
 
-        System.out.println("\n--- Generate Maze Tests ---");
+            System.out.println("\n--- Generate Maze Tests ---");
 
-        for (int i = 101; i < 1002; i += 100) {
-            generateTest(i);
+            for (int i = 101; i < 1002; i += 100) {
+                generateTest(i);
+            }
+
+            System.out.println("\n--- Solve Iterative Tests ---");
+
+            for (int i = 101; i < 1002; i += 100) {
+                solveIterativeTest(i);
+            }
+            System.out.println("\n--- Iterative vs. Recursive Tests ---");
+
+            for (int i = 51; i < 151; i += 50) {
+                compareIterativeToRecursiveTest(i);
+            }
+
+            System.out.println("\nAll performance tests finished.");
+
+        } catch (Exception e) {
+            System.out.println("Error running tests, error: " + e);
         }
-
-        System.out.println("\n--- Solve Iterative Tests ---");
-
-        for (int i = 101; i < 1002; i += 100) {
-            solveLoopTest(i);
-        }
-
     }
 
     /**
@@ -98,7 +109,7 @@ public class PerformanceTester {
      *
      * @param size - size of the maze that is solved
      */
-    public static void solveLoopTest(int size) {
+    public static void solveIterativeTest(int size) {
         Maze maze = new Maze(size, size);
         int total = 0;
         WallFollower wf = new WallFollower(maze);
@@ -131,8 +142,37 @@ public class PerformanceTester {
 
             total += timer.getMilliSeconds();
         }
-        System.out.println("Solved size " + (size * size) / 2 + ", average time used: " + (total / 10) + " ms."
-        );
+        System.out.println("Solved size " + (size * size) / 2 + ", average time used: " + (total / 10) + " ms.");
 
+    }
+
+    /**
+     * Compares the performance of the iterative and recursive WallFollower
+     * algorithms.
+     *
+     * @param size - size of the maze that is being compared
+     */
+    public static void compareIterativeToRecursiveTest(int size) {
+        Maze maze = new Maze(size, size);
+        long totalIterative = 0;
+        long totalRecursive = 0;
+        WallFollower wf = new WallFollower(maze);
+        for (int i = 0; i < 11; i++) {
+            maze.generate();
+
+            timer.start();
+            wf.solveRecursive();
+            timer.end();
+            totalRecursive += timer.getNanoSeconds();
+
+            timer.start();
+            wf.solve();
+            timer.end();
+            totalIterative += timer.getNanoSeconds();
+
+        }
+        System.out.println("Iterative solved size " + (size * size) / 2 + ", average time used: " + (totalIterative / 10) + " ns.");
+        System.out.println("Recursive solved size " + (size * size) / 2 + ", average time used: " + (totalRecursive / 10) + " ns.");
+        System.out.println("---");
     }
 }

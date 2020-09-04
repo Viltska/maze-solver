@@ -13,7 +13,8 @@ import javafx.application.Application;
 public class App {
 
     /**
-     * Main method - launches GUI class.
+     * Main method if has no arguments launches GUI class, else runs performance
+     * tests.
      *
      * @param args - main class arguments.
      */

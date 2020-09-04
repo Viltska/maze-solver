@@ -64,9 +64,9 @@ public class SquareQueue {
     }
 
     /**
-     * Returns the last element of the list but doesn't remove it
+     * Returns the last element of the list but doesn't remove it.
      *
-     * @return
+     * @return Square - the last square of the queue
      */
     public Square peekLast() {
         return this.last.getSquare();

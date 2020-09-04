@@ -88,8 +88,10 @@ public class GUI extends Application {
         rb2.setToggleGroup(sizeGroup);
         RadioButton rb3 = new RadioButton("Large");
         rb3.setToggleGroup(sizeGroup);
+        RadioButton rb4 = new RadioButton("Max");
+        rb4.setToggleGroup(sizeGroup);
 
-        hb.getChildren().addAll(rb1, rb2, rb3);
+        hb.getChildren().addAll(rb1, rb2, rb3, rb4);
         hb.setPadding(new Insets(10));
         hb.setSpacing(20);
 
@@ -98,7 +100,7 @@ public class GUI extends Application {
         HBox hb2 = new HBox();
         hb.setAlignment(Pos.CENTER);
         ToggleGroup solveGroup = new ToggleGroup();
-        RadioButton sb1 = new RadioButton("While-loop");
+        RadioButton sb1 = new RadioButton("Iterative");
         sb1.setToggleGroup(solveGroup);
         sb1.setSelected(true);
         RadioButton sb2 = new RadioButton("Recursive");
@@ -142,26 +144,38 @@ public class GUI extends Application {
 
                 }
 
+                if (selectedString.equals("Max")) {
+                    stage.setScene(getSolveScene(501, 501, 6, setting));
+                    stage.setTitle("Maze generator - Recursive Max");
+                    stage.centerOnScreen();
+
+                }
+
             } else {
                 String setting = "Loop";
                 if (selectedString.equals("Small")) {
                     stage.setScene(getSolveScene(41, 41, 12, setting));
-                    stage.setTitle("Maze generator - Loop Small");
+                    stage.setTitle("Maze generator - Iterative Small");
                     stage.centerOnScreen();
 
                 }
 
                 if (selectedString.equals("Medium")) {
                     stage.setScene(getSolveScene(81, 81, 8, setting));
-                    stage.setTitle("Maze generator - Loop Medium");
+                    stage.setTitle("Maze generator - Iterative Medium");
                     stage.centerOnScreen();
 
                 }
                 if (selectedString.equals("Large")) {
                     stage.setScene(getSolveScene(201, 101, 6, setting));
-                    stage.setTitle("Maze generator - Loop Large");
+                    stage.setTitle("Maze generator - Iterative Large");
                     stage.centerOnScreen();
 
+                }
+                if (selectedString.equals("Max")) {
+                    stage.setScene(getSolveScene(801, 301, 3, setting));
+                    stage.setTitle("Maze generator - Iterative Max");
+                    stage.centerOnScreen();
                 }
             }
 

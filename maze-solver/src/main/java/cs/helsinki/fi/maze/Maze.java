@@ -123,7 +123,7 @@ public class Maze {
      * Solves the maze.
      */
     public void solve() {
-        System.out.println("Loop called");
+        System.out.println("Iterative called");
         WallFollower wf = new WallFollower(this);
 
         timer.start();
@@ -157,7 +157,7 @@ public class Maze {
             System.out.println("Recursive called");
             sl = wf.solveRecursive();
         } else {
-            System.out.println("Loop called in recursive");
+            System.out.println("Iterative called in recursive");
             sl = wf.solve();
         }
 

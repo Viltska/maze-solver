@@ -5,7 +5,7 @@ package cs.helsinki.fi.maze;
  *
  * @author Ville Manninen
  */
-public class Square{
+public class Square {
 
     private int x;
     private int y;

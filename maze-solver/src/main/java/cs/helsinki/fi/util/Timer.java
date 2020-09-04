@@ -74,7 +74,7 @@ public class Timer {
     }
 
     /**
-     * Clears the values stored
+     * Clears the values stored.
      */
     public void clear() {
         this.start = 0;

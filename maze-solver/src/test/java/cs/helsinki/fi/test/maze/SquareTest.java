@@ -33,7 +33,7 @@ public class SquareTest {
         Square squareTrue = new Square(1, 1);
 
         assertEquals(true, square.equals(squareTrue));
-        
+
         assertEquals(false, square.equals(square2));
         assertEquals(false, square.equals(square3));
         assertEquals(false, square.equals(square4));
