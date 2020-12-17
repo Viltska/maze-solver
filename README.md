@@ -1,6 +1,10 @@
 # Maze solver
 
-Tarvittavat ohjelmat:
+## Release
+
+Lataa [tiedosto](https://github.com/Viltska/maze-solver/releases/tag/v2.0) ja suorita.
+
+Tarvittavat ohjelmat muokkaukseen:
 [Java](https://java.com/en/download/), [Maven](https://maven.apache.org/).
 
 ## Raportit
