@@ -2,7 +2,7 @@
 
 ## Release
 
-Lataa [tiedosto](https://github.com/Viltska/maze-solver/releases/tag/v2.0) ja suorita.
+Lataa suoritettava .jar [tiedosto](https://github.com/Viltska/maze-solver/releases/tag/v2.0).
 
 Tarvittavat ohjelmat muokkaukseen:
 [Java](https://java.com/en/download/), [Maven](https://maven.apache.org/).
